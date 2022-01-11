@@ -4,6 +4,7 @@ import ProfileInfo from './ProfileInfo/ProfileInfo';
 import css from "./Profile.module.css"
 import Avatar from './Avatar/Avatar';
 import PostArea from './Post/PostArea/PostArea';
+import Post from './Post/Post';
 const Profile = () => {
     return (
       <div className={css.body}>
@@ -12,10 +13,12 @@ const Profile = () => {
           <Avatar />
           <ProfileInfo />
         </div >
-        <div className={css.posts}></div>
           <PostArea />
-        {/*
-        <Comment /> */}
+          <div className={ css.singlePost }>
+            <Post />
+            <Post />
+            <Post />
+          </div>
     </div>
     )
 }

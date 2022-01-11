@@ -2,11 +2,15 @@
 .body {
     display: grid;
     grid-template-columns: 1fr 4fr;
-    padding: 50px;
+    padding: 1em;
     margin-left: 100px;
     grid-gap: 10px;
     text-align: center;
     align-items: center;
+    border-radius: 10px 10px;
+    border: 1px solid rgb(213, 213, 213);
+    box-shadow: 0 0 5px 1px;
+    margin: 1em;
 }
 
 .postText {
