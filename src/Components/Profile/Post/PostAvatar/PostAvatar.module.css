@@ -1,0 +1,13 @@
+.body {
+   display: grid;
+   margin: 0 auto;
+   
+}
+
+.postAvatar {
+    width: 60px;
+    height: auto;
+    border: 1px solid white;
+    box-shadow: 0 0 5px 1px;
+    margin: 10% 30%;
+}

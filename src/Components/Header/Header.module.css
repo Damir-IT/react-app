@@ -1,0 +1,19 @@
+header {
+    grid-template-rows: 80%;
+    background-color: #544027;
+    vertical-align: middle;
+    border-radius: 5px;
+    border: 1px solid #f6e444;
+    box-shadow: 0 0 5px 1px;
+    position:fixed;
+    width: 100%;
+    left: 0;
+    top:0;
+}
+
+img {
+    width: 30px;
+    height: 30px;
+    margin: .5em;
+    border-radius: 50%;
+  }

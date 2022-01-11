@@ -1,0 +1,17 @@
+.body {
+    background-color: beige;
+    text-align: center;
+    padding: 20px;
+    border-bottom-left-radius: 10px ;
+    border-bottom-right-radius: 10px ;
+    border: 1px solid #f6e444;
+    box-shadow: 0 0 5px 1px;
+    
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    padding: 10px;
+    margin-top: 0;
+}

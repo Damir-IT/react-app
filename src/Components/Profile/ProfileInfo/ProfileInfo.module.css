@@ -1,0 +1,15 @@
+.content {
+  height: 150px;
+  text-align: center;
+  margin: 2%;
+  border: 1px solid #f6e444;
+  box-shadow: 0 0 5px 1px;
+  border-top-right-radius: 110px; 
+  border-bottom-right-radius: 110px;
+  padding: auto auto;
+  display: flex;
+  margin-right: 7%;
+}
+.content span {
+  margin: 5% 5%;
+}

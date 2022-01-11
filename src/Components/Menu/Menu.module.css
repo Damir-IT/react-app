@@ -1,0 +1,55 @@
+
+.menu {
+    background-color: #967f63;  
+    text-align: center;
+    
+    border-bottom-left-radius: 10px 10px;
+    border-top-right-radius: 10px 10px ;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(213, 213, 213);
+    box-shadow: 0 0 5px 1px;
+    height: 8em;
+    margin-top: 4em;
+
+}
+
+.menu a {
+    outline-style: none;
+    color: white;
+    padding: 20px;
+    transition: all;
+    transition-duration: 0.3s;
+    
+}
+
+/* HOVER STATE */
+.menu a:first-child:hover {
+    border-top-right-radius: 10px 10px ;
+}
+.menu a:last-child:hover {
+    border-bottom-left-radius: 10px 10px ;
+} 
+
+.menu a:hover {
+    background-color: #f4eb60;
+    width: 100%;
+    color: #544027;
+    border: 1px solid #f6e444;
+    box-shadow:  0 0 3px 1px  #544027;
+}
+
+/* FOCUSED STATE */
+.menu a:focus  {
+    box-shadow:  inset 0 0 10px 5px  #daaf39;
+    background-color: #f4eb60;
+    color: #544027;
+}
+
+.menu a:last-child:focus {
+    border-bottom-left-radius: 10px 10px ;
+}
+.menu a:first-child:focus {
+    border-top-right-radius: 10px 10px ;
+}
+

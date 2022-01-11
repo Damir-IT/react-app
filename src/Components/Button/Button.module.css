@@ -1,0 +1,21 @@
+.button {
+    
+    font-size: 14pt;
+    padding: .4em 1em;
+    background: linear-gradient(to right,#daaf39, #f4eb60, #f4eb60,  #f6e444, #daaf39);
+    border-radius: 10px 10px;
+    border: 1px solid rgb(213, 213, 213);
+    box-shadow: 0 0 5px 1px;
+    transition: all;
+    transition-duration: .1s;
+}
+
+.button:hover {
+    box-shadow: 0 0 1px 1px;
+}
+.button:active {
+    
+    box-shadow: 0 0 1px 1px,
+                inset 0 0 1px 1px;
+
+}

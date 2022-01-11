@@ -1,0 +1,14 @@
+
+.body {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    padding: 50px;
+    margin-left: 100px;
+    grid-gap: 10px;
+    text-align: center;
+    align-items: center;
+}
+
+.postText {
+    text-align: left;
+}
