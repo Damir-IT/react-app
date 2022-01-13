@@ -9,6 +9,7 @@ header {
     width: 100%;
     left: 0;
     top:0;
+    
 }
 
 img {
@@ -17,3 +18,14 @@ img {
     margin: .5em;
     border-radius: 50%;
   }
+
+.menu {
+    width: 10%;
+    text-align: center;
+    position: fixed;
+    top: 5px;
+
+}
+
+
+

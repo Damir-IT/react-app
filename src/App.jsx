@@ -8,18 +8,19 @@ import Dialogs from './Components/Dialogs/Dialogs';
 import NotFound from './Components/NotFound/NotFound';
 
 import {BrowserRouter ,Routes, Route, Link} from 'react-router-dom'
+import Layout from './Components/Layout/Layout';
 
 function App() {
   return (
     <BrowserRouter>
       <div className="app">
-        <Header />
         <div className='app__main'>
-          <Menu className='menu'/>
             <Routes>
-              <Route path='/dialogs' element={<Dialogs />} />
-              <Route path="/profile" element={<Profile />} />
-              <Route path='*' element={<NotFound />} />
+              <Route path='/' element={ <Layout /> } >
+                <Route path='dialogs' element={<Dialogs />} />
+                <Route index element={<Profile />} />
+                <Route path='*' element={<NotFound />} />
+              </Route>
             </Routes>
         </div>
       </div>

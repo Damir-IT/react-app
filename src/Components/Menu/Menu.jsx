@@ -5,8 +5,11 @@ import { Link } from 'react-router-dom'
 const Menu = () => {
     return (
         <sidebar className={css.menu}>
-          <Link to='/profile'>Profile</Link>
+          <Link to='/'>Profile</Link>
           <Link to='/dialogs'>Dialogs</Link>
+          <Link to='/music'>Music</Link>
+          <Link to='/friends'>Friend</Link>
+          <Link to='/about'>About</Link>
         </sidebar>
     )
 }

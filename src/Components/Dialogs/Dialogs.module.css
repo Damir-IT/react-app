@@ -1,7 +1,34 @@
-.style {
+.body {
 
-    color: white;
+    color: rgb(90, 196, 24);
     font-size: 20pt;
     background-color: #f5f5dc;
+    display: grid;
+    grid-template-columns: 2fr 5fr;
     
+
+}
+
+.dialogs {
+    margin: 2em auto;
+    display: grid;
+    grid-template-rows:max-content;
+    grid-gap: .5em;
+ 
+    
+}
+
+.dialogs a {
+
+
+    color: #544027;
+    text-decoration: none;
+    width: 100%;
+    padding: 10%;
+    
+    
+
+}
+.dialogWindow {
+    background-color: aliceblue;
 }

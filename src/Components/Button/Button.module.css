@@ -8,6 +8,7 @@
     box-shadow: 0 0 5px 1px;
     transition: all;
     transition-duration: .1s;
+
 }
 
 .button:hover {
