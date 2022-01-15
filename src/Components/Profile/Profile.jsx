@@ -5,7 +5,13 @@ import css from "./Profile.module.css"
 import Avatar from './Avatar/Avatar';
 import PostArea from './Post/PostArea/PostArea';
 import Post from './Post/Post';
-const Profile = () => {
+
+
+const Profile = (props) => {
+    
+
+    const posted = props.posts.map(post => <Post message={ post.message } /> )
+
     return (
       <div className={css.body}>
         <Banner />
@@ -15,9 +21,7 @@ const Profile = () => {
         </div >
           <PostArea />
           <div className={ css.singlePost }>
-            <Post />
-            <Post />
-            <Post />
+            { posted }
           </div>
     </div>
     )

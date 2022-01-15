@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Outlet } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 import Header from '../Header/Header'
 import Menu from '../Menu/Menu'
 import css from './Layout.module.css'

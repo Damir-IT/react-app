@@ -19,16 +19,20 @@
 }
 
 .dialogs a {
-
-
     color: #544027;
     text-decoration: none;
     width: 100%;
     padding: 10%;
-    
-    
-
 }
+
+.dialog a:hover {
+    background-color: white;
+}
+
 .dialogWindow {
+    color: black;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
     background-color: aliceblue;
 }
