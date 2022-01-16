@@ -4,13 +4,13 @@ import { NavLink } from 'react-router-dom'
 
 const Menu = () => {
     return (
-        <sidebar className={css.menu}>
+        <div className={css.menu}>
           <NavLink to='/'>Profile</NavLink>
           <NavLink to='/dialogs'>Dialogs</NavLink>
           <NavLink to='/music'>Music</NavLink>
           <NavLink to='/friends'>Friend</NavLink>
           <NavLink to='/about'>About</NavLink>
-        </sidebar>
+        </div>
     )
 }
 

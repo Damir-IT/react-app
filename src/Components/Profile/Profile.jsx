@@ -8,10 +8,10 @@ import Post from './Post/Post';
 
 
 const Profile = (props) => {
+  debugger;
+  const makePost = props.posts.map(post => <Post  message={ post.message } /> )
     
-
-    const posted = props.posts.map(post => <Post message={ post.message } /> )
-
+  
     return (
       <div className={css.body}>
         <Banner />
@@ -19,11 +19,11 @@ const Profile = (props) => {
           <Avatar />
           <ProfileInfo />
         </div >
-          <PostArea />
+          <PostArea  addPost={ props.addPost } />
           <div className={ css.singlePost }>
-            { posted }
+            { makePost }
           </div>
-    </div>
+      </div>
     )
 }
 export default Profile;

@@ -1,18 +1,25 @@
 import React from 'react'
 import Button from '../../../Button/Button';
-import Profile from '../../Profile';
-import Post from '../Post';
 import css from './PostArea.module.css'
 
 
 const PostArea = (props) => {
+    debugger;
+    const postRef = React.createRef();
+    
+    const addPosts = () => {
+      const post = postRef.current.value;
+      props.addPost(post)
+      postRef.current.value = '';
+    }  
+
     return (
-        <form onSubmit={<Profile />} enctype="text/plain" className={css.body}> 
-            <input className={css.input} type='text'></input>
+        <div  className={css.body}> 
+            <textarea ref={ postRef } className={css.input}></textarea>
             <div className={css.button}>
-                <Button name='Post' />
+                <Button onClick={ addPosts } name='Post' />
             </div>
-        </form>
+        </div>
     )
 }
 

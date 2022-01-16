@@ -1,0 +1,30 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom';
+import { addPost } from './redux/state';
+
+
+const renderPage = (state) => {
+  ReactDOM.render(
+    <BrowserRouter>
+      <React.StrictMode>
+        <App 
+          dialogs={ state.dialogsPage.dialogs }
+          messages={ state.dialogsPage.messages } 
+          posts={ state.profilePage.posts }
+          addPost={ addPost }
+        />
+      </React.StrictMode>
+    </BrowserRouter>,
+    document.getElementById('root')
+  );
+  
+  reportWebVitals();
+
+}
+
+
+export default renderPage;
