@@ -2,8 +2,8 @@ import renderPage from "../renderPage";
 
 const state = {
     profilePage : {
-        posts : [    
-        ],
+        posts : [],
+        newPost : ' ',
     },
     dialogsPage : {
         dialogs : [
@@ -22,8 +22,13 @@ const state = {
 
 }
 
-export const addPost = (postText) => {
-    const newPost = { message : postText };
+export const showPostInput = (input) => {
+    state.profilePage.newPost = input;
+    renderPage(state);
+}
+
+export const addPost = () => {
+    const newPost = { message : state.profilePage.newPost };
     state.profilePage.posts.push(newPost)
     renderPage(state);
 }

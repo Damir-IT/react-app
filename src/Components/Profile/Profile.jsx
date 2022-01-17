@@ -19,7 +19,7 @@ const Profile = (props) => {
           <Avatar />
           <ProfileInfo />
         </div >
-          <PostArea  addPost={ props.addPost } />
+          <PostArea newPost={ props.newPost } showPostInput={ props.showPostInput } addPost={ props.addPost } />
           <div className={ css.singlePost }>
             { makePost }
           </div>

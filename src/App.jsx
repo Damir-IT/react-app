@@ -24,6 +24,8 @@ function App(props) {
                                       addPost={ props.addPost } 
                                       getPostIndex={ props.getPostIndex }
                                       posts={ props.posts } 
+                                      showPostInput={ props.showPostInput }
+                                      newPost={ props.newPost }
                                       />} 
                                     />
               <Route path='*' element={<NotFound />} />

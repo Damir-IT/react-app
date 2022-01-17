@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-import { addPost, deletePost, getPostIndex } from './redux/state';
+import { addPost, deletePost, getPostIndex, showPostInput } from './redux/state';
 
 
 const renderPage = (state) => {
@@ -15,9 +15,11 @@ const renderPage = (state) => {
           dialogs={ state.dialogsPage.dialogs }
           messages={ state.dialogsPage.messages } 
           posts={ state.profilePage.posts }
+          newPost={ state.profilePage.newPost }
           addPost={ addPost }
           deletePost={ deletePost }
           getPostIndex={ getPostIndex }
+          showPostInput={ showPostInput }
         />
       </React.StrictMode>
     </BrowserRouter>,
