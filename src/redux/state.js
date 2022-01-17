@@ -28,4 +28,13 @@ export const addPost = (postText) => {
     renderPage(state);
 }
 
+export const getPostIndex = (post) => {
+    return state.profilePage.posts.indexOf(post);
+}
+
+export const deletePost = (postIndex) => {
+    state.profilePage.posts.splice(postIndex, 1);
+    renderPage(state);
+}
+
 export default state;

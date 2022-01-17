@@ -4,7 +4,7 @@ import css from './PostArea.module.css'
 
 
 const PostArea = (props) => {
-    debugger;
+   
     const postRef = React.createRef();
     
     const addPosts = () => {

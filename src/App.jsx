@@ -11,7 +11,6 @@ import Layout from './Components/Layout/Layout';
 function App(props) {
   return (
     <div className="app">
-      debugger;
       <div className='app__main'>
           <Routes>
             <Route path='/' element={ <Layout /> } >
@@ -20,7 +19,13 @@ function App(props) {
                                                 messages={ props.messages } 
                                                 />} 
                                               />
-              <Route index element={<Profile addPost={ props.addPost } posts={ props.posts } />} />
+              <Route index element={<Profile 
+                                      deletePost={ props.deletePost } 
+                                      addPost={ props.addPost } 
+                                      getPostIndex={ props.getPostIndex }
+                                      posts={ props.posts } 
+                                      />} 
+                                    />
               <Route path='*' element={<NotFound />} />
             </Route>
           </Routes>

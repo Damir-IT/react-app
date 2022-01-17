@@ -8,8 +8,8 @@ import Post from './Post/Post';
 
 
 const Profile = (props) => {
-  debugger;
-  const makePost = props.posts.map(post => <Post  message={ post.message } /> )
+
+  const makePost = props.posts.map(post => <Post getPostIndex={ props.getPostIndex } deletePost={ props.deletePost } message={ post.message } /> )
     
   
     return (

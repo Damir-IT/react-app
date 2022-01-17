@@ -12,22 +12,16 @@ const Dialogs = (props) => {
         .map(m => <Message id={ m.id } message={ m.message } /> )
 
     return (
-
         <div className={css.body}>
-         
             <div className={css.dialogs}>
-                
                 { dialogList }
-
              </div>
             <div className={css.dialogWindow}>
 
                 { messageList }
 
             </div>
-     
         </div>
-
     )
 }
 
