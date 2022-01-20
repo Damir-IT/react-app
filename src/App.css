@@ -36,16 +36,13 @@ img{vertical-align: top;}
 
 h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 /*--------------------*/
-body {
-  background-color: #221a10;
-}
+
 .app {
   display: grid;
   width: 100%;
-  margin: 0 auto;
-  padding: 2% 15%;
+  padding: 2% 0;
   grid-template-rows: 3em;
-
+  background: #fff;
 }
 
 .app__main {
@@ -54,7 +51,4 @@ body {
 
 }
 
-.app__content {
-  background-color: grey;
 
-}

@@ -9,7 +9,6 @@ const PostArea = (props) => {
     
     const addPosts = () => {
       props.addPost()
-      props.showPostInput(' ');
     }  
 
     const postInput = () => {

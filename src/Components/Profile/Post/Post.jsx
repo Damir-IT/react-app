@@ -5,11 +5,10 @@ import PostAvatar from './PostAvatar/PostAvatar'
 
 const Post = (props) => {
 
-    const postIndex = props.getPostIndex(props.message);
+    
 
     const deletePost = () => {
-        
-        props.deletePost(postIndex)
+        props.deletePost(props.post);
     }
 
     return (
@@ -17,13 +16,12 @@ const Post = (props) => {
             <div>
                <PostAvatar />
             </div>
-            <div className={css.postText}>
-
+            <div 
+                className={css.postText}>
                 { props.message }
-                { postIndex }
-
             </div>
-            <div className={ css.button }>
+            <div 
+                className={ css.button }>
                 <Button name='Delete' onClick={ deletePost } />
             </div>
         </div>

@@ -9,7 +9,14 @@ import Post from './Post/Post';
 
 const Profile = (props) => {
 
-  const makePost = props.posts.map(post => <Post getPostIndex={ props.getPostIndex } deletePost={ props.deletePost } message={ post.message } /> )
+  const makePost = props.posts.map(
+    post => <Post 
+              getPostIndex={ props.getPostIndex } 
+              deletePost={ props.deletePost } 
+              message={ post.message } 
+              post={ post }
+              /> 
+    )   
     
   
     return (

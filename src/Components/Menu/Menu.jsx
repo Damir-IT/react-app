@@ -1,15 +1,15 @@
 import React from 'react';
 import css from './Menu.module.css';
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const Menu = () => {
     return (
         <div className={css.menu}>
-          <NavLink to='/'>Profile</NavLink>
-          <NavLink to='/dialogs'>Dialogs</NavLink>
-          <NavLink to='/music'>Music</NavLink>
-          <NavLink to='/friends'>Friend</NavLink>
-          <NavLink to='/about'>About</NavLink>
+    <Link to='/'>Profile</Link>
+          <Link to='/dialogs'>Dialogs</Link>
+          <Link to='/music'>Music</Link>
+          <Link to='/friends'>Friend</Link>
+          <Link to='/about'>About</Link>
         </div>
     )
 }

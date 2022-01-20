@@ -1,22 +1,31 @@
 .button {
     
-    font-size: 14pt;
+    font-size: 10pt;
     padding: .4em 1em;
-    background: linear-gradient(to right,#daaf39, #f4eb60, #f4eb60,  #f6e444, #daaf39);
+    background: linear-gradient(to right, #3643ff, #727bf7, #3643ff);
     border-radius: 10px 10px;
     border: 1px solid rgb(213, 213, 213);
     box-shadow: 0 0 5px 1px;
     transition: all;
     transition-duration: .1s;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+
 
 }
 
 .button:hover {
     box-shadow: 0 0 1px 1px;
+    background: linear-gradient(to right, #3643ff, #3643ff, #3643ff);
+    color: #a8aefc ;
 }
 .button:active {
     
+    background: linear-gradient(to right, #3643ff, #3643ff, #3643ff);
+  
     box-shadow: 0 0 1px 1px,
                 inset 0 0 1px 1px;
+
 
 }

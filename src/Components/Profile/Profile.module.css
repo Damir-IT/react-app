@@ -1,10 +1,10 @@
 .body {
-    background-color: beige;
+    background-color: #fff;
     text-align: center;
     padding: 20px;
     border-bottom-left-radius: 10px ;
     border-bottom-right-radius: 10px ;
-    border: 1px solid #f6e444;
+    border: 1px solid #fff;
     box-shadow: 0 0 5px 1px;
     
     
@@ -19,7 +19,7 @@
 
 .singlePost {
     border-radius: 10px 10px;
-    border: 1px solid rgb(213, 213, 213);
+    border: 1px solid #fff;
     box-shadow: 0 0 5px 1px;
     margin: 5px 20%;
     padding: 5px;

@@ -1,9 +1,9 @@
 header {
     grid-template-rows: 80%;
-    background-color: #544027;
+    background-color: #071f5f;
     vertical-align: middle;
     border-radius: 5px;
-    border: 1px solid #f6e444;
+    border: 1px solid #fff;
     box-shadow: 0 0 5px 1px;
     position:fixed;
     width: 100%;
