@@ -8,11 +8,12 @@ const Post = (props) => {
     
 
     const deletePost = () => {
-        props.deletePost(props.post);
+        props.dispatch(props.post);
     }
 
     return (
-        <div className={css.body}>
+        <div 
+            className={css.body}>
             <div>
                <PostAvatar />
             </div>

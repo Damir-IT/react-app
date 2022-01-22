@@ -14,13 +14,8 @@ const renderPage = () => {
     <BrowserRouter>
       <React.StrictMode>
         <App 
-          dialogs={ store._state.dialogsPage.dialogs }
-          messages={ store._state.dialogsPage.messages } 
-          posts={ store._state.profilePage.posts }
-          newPost={ store._state.profilePage.newPost }
-          addPost={ store.addPost.bind(store) }
-          deletePost={ store.deletePost.bind(store) }
-          showPostInput={ store.showPostInput.bind(store) }
+          state={ store.getState() }
+          dispatch={ store.dispatch.bind(store) }
         />
       </React.StrictMode>
     </BrowserRouter>,

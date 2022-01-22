@@ -11,7 +11,7 @@ const store = {
                 {message: 'Ragnar Logbrock'},
                 {message: 'You misspelled that one'},
             ],
-            newPost : ' ',
+            newPost : '',
         },
         dialogsPage : {
             dialogs : [
@@ -28,22 +28,50 @@ const store = {
 
         },
     },
-    showPostInput(input) {
-        this._state.profilePage.newPost = input;
-        this.reRenderPage(); },
-    addPost() {
-        const newPost = { message : this._state.profilePage.newPost };
-        this._state.profilePage.posts.push(newPost)
-        this._state.profilePage.newPost = '' ;
-        this.reRenderPage(); },
-    deletePost(post) {
-        this._state.profilePage.posts.splice(post, 1);
-        this.reRenderPage();},
+    getState () {
+        return this._state;
+    },
     reRenderPage () {},
     assign (observer) {
         this.reRenderPage = observer;
+    },
+    _showPostInput(input) {
+        this._state.profilePage.newPost = input;
+        this.reRenderPage(); 
+    },
+    _addPost() {
+        const newPost = { message : this._state.profilePage.newPost };
+        this._state.profilePage.posts.push(newPost)
+        this._state.profilePage.newPost = '' ;
+        this.reRenderPage(); 
+    },
+    _deletePost(post) {
+        this._state.profilePage.posts.splice(post, 1);
+        this.reRenderPage();
+    },
+
+    dispatch (action) {
+        switch (action.type) {
+            case 'ADD-POST':
+                this._addPost()
+                break;
+
+            case 'DELETE-POST':
+                this._deletePost()
+                break;
+
+            case 'SHOW-POST-INPUT':
+                this._showPostInput(action.input)
+                break;
+
+            case 'GET-NEW-POST':
+                return this._state.profilePage.newPost;
+
+        }
+            
     }
 }
 
 
 export default store;
+

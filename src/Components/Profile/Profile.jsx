@@ -9,25 +9,29 @@ import Post from './Post/Post';
 
 const Profile = (props) => {
 
-  const makePost = props.posts.map(
-    post => <Post 
-              getPostIndex={ props.getPostIndex } 
-              deletePost={ props.deletePost } 
-              message={ post.message } 
-              post={ post }
-              /> 
+  const makePost = props.profilePage.posts
+    .map(
+        post => <Post 
+                  dispatch={ props.dispatch } 
+                  message={ post.message } 
+                  post={ post }/> 
     )   
     
   
     return (
-      <div className={css.body}>
+      <div 
+        className={ css.body }>
         <Banner />
-        <div className={css.content}>
+        <div 
+          className={ css.content }>
           <Avatar />
           <ProfileInfo />
         </div >
-          <PostArea newPost={ props.newPost } showPostInput={ props.showPostInput } addPost={ props.addPost } />
-          <div className={ css.singlePost }>
+          <PostArea 
+            dispatch={ props.dispatch }
+            newPost={ props.profilePage.newPost} />
+          <div 
+            className={ css.singlePost }>
             { makePost }
           </div>
       </div>

@@ -7,19 +7,33 @@ const PostArea = (props) => {
    
     const postRef = React.createRef();
     
-    const addPosts = () => {
-      props.addPost()
-    }  
+    const addPost = () => props.dispatch( { type: 'ADD-POST' } )
+    
 
     const postInput = () => {
         const input = postRef.current.value;
-        props.showPostInput(input)
+        props.dispatch(
+            {
+                type: 'SHOW-POST-INPUT', 
+                input: input
+            }
+        )
     }
+   
     return (
-        <div  className={css.body}> 
-            <textarea value={ props.newPost } onChange={ postInput } ref={ postRef } className={css.input} />
-            <div className={css.button}>
-                <Button onClick={ addPosts } name='Post' />
+        <div  
+            className={css.body}> 
+            <textarea 
+                value={ props.newPost } 
+                onChange={ postInput } 
+                ref={ postRef } 
+                className={ css.input } />
+
+            <div 
+                className={css.button}>
+                <Button 
+                    onClick={ addPost } 
+                    name='Post' />
             </div>
         </div>
     )
