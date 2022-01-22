@@ -1,4 +1,5 @@
 import React from 'react'
+import { deletePostActionCreator } from '../../../redux/state'
 import Button from '../../Button/Button'
 import css from './Post.module.css'
 import PostAvatar from './PostAvatar/PostAvatar'
@@ -8,7 +9,8 @@ const Post = (props) => {
     
 
     const deletePost = () => {
-        props.dispatch(props.post);
+        props.dispatch( 
+            deletePostActionCreator(props.post));
     }
 
     return (

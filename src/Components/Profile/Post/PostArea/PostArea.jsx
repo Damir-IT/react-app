@@ -1,4 +1,5 @@
 import React from 'react'
+import { addPostActionCreator, postInputActionCreator } from '../../../../redux/state';
 import Button from '../../../Button/Button';
 import css from './PostArea.module.css'
 
@@ -7,17 +8,12 @@ const PostArea = (props) => {
    
     const postRef = React.createRef();
     
-    const addPost = () => props.dispatch( { type: 'ADD-POST' } )
+    const addPost = () => props.dispatch( addPostActionCreator() )
     
 
     const postInput = () => {
         const input = postRef.current.value;
-        props.dispatch(
-            {
-                type: 'SHOW-POST-INPUT', 
-                input: input
-            }
-        )
+        props.dispatch(postInputActionCreator(input))
     }
    
     return (

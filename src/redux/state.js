@@ -60,7 +60,7 @@ const store = {
                 break;
 
             case DELETE_POST:
-                this._deletePost()
+                this._deletePost(action.post)
                 break;
 
             case POST_INPUT:
@@ -71,7 +71,16 @@ const store = {
     }
 }
 
+export const postInputActionCreator = (input) => ({
+    type: POST_INPUT,
+    input: input,
+})
 
+export const addPostActionCreator = () => ({ type: ADD_POST })
+
+export const deletePostActionCreator = (post) => (
+    { type: DELETE_POST, post: post }
+    )
 
 export default store;
 
