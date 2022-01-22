@@ -1,3 +1,6 @@
+const ADD_POST = 'ADD-POST';
+const DELETE_POST = 'DELETE-POST';
+const POST_INPUT = 'SHOW-POST-INPUT';
 
 const store = {
     _state : {
@@ -52,25 +55,22 @@ const store = {
 
     dispatch (action) {
         switch (action.type) {
-            case 'ADD-POST':
+            case ADD_POST:
                 this._addPost()
                 break;
 
-            case 'DELETE-POST':
+            case DELETE_POST:
                 this._deletePost()
                 break;
 
-            case 'SHOW-POST-INPUT':
+            case POST_INPUT:
                 this._showPostInput(action.input)
                 break;
-
-            case 'GET-NEW-POST':
-                return this._state.profilePage.newPost;
-
         }
             
     }
 }
+
 
 
 export default store;
