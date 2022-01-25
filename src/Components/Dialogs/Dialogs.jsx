@@ -29,10 +29,8 @@ const Dialogs = (props) => {
 
             )
     // FUNCTIONALITY
-    const messageRef = React.createRef();
-
-    const showMessage = () => {
-        const input = messageRef.current.value;
+    const showMessage = (e) => {
+        const input = e.target.value;
         props.dispatch(
                 messageInputActionCreator(input)
             )
@@ -56,7 +54,6 @@ const Dialogs = (props) => {
                 <p className={ css.message }>{ messageList }</p>
                 <textarea
                      value={ props.dialogPage.newMessage }
-                     ref={ messageRef } 
                      className={ css.input } 
                      onChange={ showMessage }/>
                 <div className={ css.button }>

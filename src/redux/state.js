@@ -5,6 +5,7 @@ const MESSAGE_INPUT = 'SHOW-MESSAGE-INPUT';
 const SEND_MESSAGE = 'SEND-MESSAGE';
 
 const store = {
+    //DATA
     _state : {
         profilePage : {
             posts : [
@@ -16,7 +17,7 @@ const store = {
                 {message: 'Ragnar Logbrock'},
                 {message: 'You misspelled that one'},
             ],
-            newPost : '1234',
+            newPost : '',
         },
         dialogsPage : {
             dialogs : [
@@ -34,6 +35,9 @@ const store = {
 
         },
     },
+
+    //METHODS
+
     getState () {
         return this._state;
     },
@@ -67,6 +71,8 @@ const store = {
         
     },
 
+    // DISPATCHER
+
     dispatch (action) {
         switch (action.type) {
             case ADD_POST:
@@ -93,16 +99,18 @@ const store = {
     }
 }
 
+//ACTION-CREATORS
 const postInputActionCreator = (input) => ({
     type: POST_INPUT,
     input: input,
 })
-
 const addPostActionCreator = () => ({ type: ADD_POST })
 
 const deletePostActionCreator = (post) => (
-    { type: DELETE_POST, post: post }
-    )
+    { type: DELETE_POST, 
+        post: post 
+    }
+)
 
 const messageInputActionCreator = (input) => (
     {
