@@ -1,24 +1,49 @@
-import React from 'react'
+import  React  from 'react'
 import DialogItem from './DialogItem/DialogItem'
 import css from './Dialogs.module.css'
-import Message from './Message/Message'
+import { Message } from './Message/Message'
+import { Outlet } from 'react-router-dom'
+import { 
+    messageInputActionCreator, 
+    MESSAGE_INPUT, 
+    sendMessageActionCreator
+} from '../../redux/state'
+import Button from '../Button/Button'
+
 
 const Dialogs = (props) => {
-    debugger;
+    //DISPLAY
+
     const dialogList = props.dialogPage.dialogs
         .map(
                 dialog => <DialogItem 
                     name={ dialog.name } 
                     id={ dialog.id } />
             )
-    debugger;
+
     const messageList = props.dialogPage.messages
         .map(
                 m => <Message 
                     id={ m.id } 
                     message={ m.message } /> 
-            )
 
+            )
+    // FUNCTIONALITY
+    const messageRef = React.createRef();
+
+    const showMessage = () => {
+        const input = messageRef.current.value;
+        props.dispatch(
+                messageInputActionCreator(input)
+            )
+    }
+    const sendMessage = () => {
+        props.dispatch(
+            sendMessageActionCreator()
+            )
+    }
+    
+    //JSX MARKUP
     return (
         <div 
             className={css.body}>
@@ -28,7 +53,15 @@ const Dialogs = (props) => {
              </div>
             <div 
                 className={css.dialogWindow}>
-                { messageList }
+                <p className={ css.message }>{ messageList }</p>
+                <textarea
+                     value={ props.dialogPage.newMessage }
+                     ref={ messageRef } 
+                     className={ css.input } 
+                     onChange={ showMessage }/>
+                <div className={ css.button }>
+                    <Button onClick={ sendMessage } name='send'/>
+                </div>
             </div>
         </div>
     )

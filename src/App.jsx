@@ -6,10 +6,12 @@ import Dialogs from './Components/Dialogs/Dialogs';
 import NotFound from './Components/NotFound/NotFound';
 
 import { Routes, Route} from 'react-router-dom'
-import Layout from './Components/Layout/Layout';
+import { Layout } from './Components/Layout/Layout';
+import { Message } from './Components/Dialogs/Message/Message';
 
 
 function App(props) {
+  
   return (
     <div 
       className="app">
@@ -20,9 +22,11 @@ function App(props) {
             path='/' element={ <Layout /> } >
 
             <Route path='dialogs' element={
-              <Dialogs dialogPage={ props.state.dialogsPage } />
-            }/>
-
+              <Dialogs 
+                dialogPage={ props.state.dialogsPage } 
+                dispatch={ props.dispatch }/> }> 
+              <Route path='dialogs/:id' element={ <Message /> } />
+            </Route>
             <Route index element={
               <Profile 
                 profilePage={ props.state.profilePage }
@@ -39,4 +43,4 @@ function App(props) {
   );
 }
 
-export default App;
+export { App };

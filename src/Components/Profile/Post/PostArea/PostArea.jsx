@@ -1,5 +1,8 @@
 import React from 'react'
-import { addPostActionCreator, postInputActionCreator } from '../../../../redux/state';
+import { 
+    addPostActionCreator, 
+    postInputActionCreator 
+} from '../../../../redux/state';
 import Button from '../../../Button/Button';
 import css from './PostArea.module.css'
 

@@ -1,6 +1,8 @@
 const ADD_POST = 'ADD-POST';
 const DELETE_POST = 'DELETE-POST';
 const POST_INPUT = 'SHOW-POST-INPUT';
+const MESSAGE_INPUT = 'SHOW-MESSAGE-INPUT';
+const SEND_MESSAGE = 'SEND-MESSAGE';
 
 const store = {
     _state : {
@@ -14,7 +16,7 @@ const store = {
                 {message: 'Ragnar Logbrock'},
                 {message: 'You misspelled that one'},
             ],
-            newPost : '',
+            newPost : '1234',
         },
         dialogsPage : {
             dialogs : [
@@ -24,10 +26,11 @@ const store = {
                 { id : 4, name : 'Kriss' },
                 ],
             messages : [
-                { id : 1, message : 'Hey there' },
-                { id : 2, message : 'Sup, bro' },
-                { id : 3, message : 'How are you doin\'??' },
+                { message : 'Hey there' },
+                { message : 'Sup, bro' },
+                { message : 'How are you doin\'??' },
             ],
+            newMessage : '',
 
         },
     },
@@ -52,6 +55,17 @@ const store = {
         this._state.profilePage.posts.splice(post, 1);
         this.reRenderPage();
     },
+    _showMessageInput (input) {
+        this._state.dialogsPage.newMessage = input;
+        this.reRenderPage()
+    },
+    _sendMessage() {
+        const newMessage = { message: this._state.dialogsPage.newMessage };
+        this._state.dialogsPage.messages.push(newMessage);
+        this._state.dialogsPage.newMessage = '';
+        this.reRenderPage();
+        
+    },
 
     dispatch (action) {
         switch (action.type) {
@@ -66,21 +80,52 @@ const store = {
             case POST_INPUT:
                 this._showPostInput(action.input)
                 break;
+                
+            case MESSAGE_INPUT:
+                this._showMessageInput(action.input);
+                break;
+            case SEND_MESSAGE:
+                this._sendMessage();
+                break;
+                
         }
             
     }
 }
 
-export const postInputActionCreator = (input) => ({
+const postInputActionCreator = (input) => ({
     type: POST_INPUT,
     input: input,
 })
 
-export const addPostActionCreator = () => ({ type: ADD_POST })
+const addPostActionCreator = () => ({ type: ADD_POST })
 
-export const deletePostActionCreator = (post) => (
+const deletePostActionCreator = (post) => (
     { type: DELETE_POST, post: post }
     )
 
-export default store;
+const messageInputActionCreator = (input) => (
+    {
+        type: MESSAGE_INPUT, 
+        input: input
+    }
+)
+
+const sendMessageActionCreator = () => ({
+    type: SEND_MESSAGE,
+})
+export  { 
+    store,
+    postInputActionCreator,
+    addPostActionCreator,
+    deletePostActionCreator,
+    messageInputActionCreator,
+    sendMessageActionCreator,
+    // variables
+    ADD_POST,
+    DELETE_POST,
+    MESSAGE_INPUT,
+    POST_INPUT,
+    SEND_MESSAGE,
+};
 

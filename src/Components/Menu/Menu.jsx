@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const Menu = () => {
     return (
         <div className={css.menu}>
-    <Link to='/'>Profile</Link>
+        <Link to='/'>Profile</Link>
           <Link to='/dialogs'>Dialogs</Link>
           <Link to='/music'>Music</Link>
           <Link to='/friends'>Friend</Link>
@@ -14,5 +14,5 @@ const Menu = () => {
     )
 }
 
-export default Menu;
+export { Menu };
 
