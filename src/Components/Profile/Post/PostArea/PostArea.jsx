@@ -1,18 +1,20 @@
 import React from 'react'
-import { addPostActionCreator, postInputActionCreator } from '../../../../redux/state';
+import { 
+    addPostActionCreator, 
+    postInputActionCreator 
+} from '../../../../redux/state';
 import Button from '../../../Button/Button';
 import css from './PostArea.module.css'
 
 
 const PostArea = (props) => {
    
-    const postRef = React.createRef();
     
     const addPost = () => props.dispatch( addPostActionCreator() )
     
 
-    const postInput = () => {
-        const input = postRef.current.value;
+    const postInput = (e) => {
+        const input = e.target.value;
         props.dispatch(postInputActionCreator(input))
     }
    
@@ -22,7 +24,6 @@ const PostArea = (props) => {
             <textarea 
                 value={ props.newPost } 
                 onChange={ postInput } 
-                ref={ postRef } 
                 className={ css.input } />
 
             <div 

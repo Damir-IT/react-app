@@ -1,6 +1,16 @@
+import Avatar from "../../Profile/Avatar/Avatar";
+import css from './Message.module.css';
 
 const Message = (props) => {
-    return ( props.message );
+    return ( 
+        <div 
+            className={ css.body }>
+            <div 
+                className={ css.message }>
+                { props.message }
+            </div>
+        </div> 
+    );
 }
 
-export default Message;
+export { Message }; 

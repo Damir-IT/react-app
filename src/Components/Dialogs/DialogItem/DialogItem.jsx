@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import css from './../Dialogs.module.css'
 
 const DialogItem = (props) => {
@@ -8,11 +8,11 @@ const DialogItem = (props) => {
 
     return (
         <div>
-            <NavLink 
+            <Link 
                 className={ css.dialogItem } 
-                to={ path }
-                >{ props.name }
-            </NavLink>
+                to={ path }>
+                { props.name }
+            </Link>
         </div>
     )
 }
