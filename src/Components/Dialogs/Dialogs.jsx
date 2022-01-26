@@ -5,9 +5,8 @@ import { Message } from './Message/Message'
 import { Outlet } from 'react-router-dom'
 import { 
     messageInputActionCreator, 
-    MESSAGE_INPUT, 
     sendMessageActionCreator
-} from '../../redux/state'
+} from '../../redux/dialogsPageReducer'
 import Button from '../Button/Button'
 
 

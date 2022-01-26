@@ -2,7 +2,7 @@ import React from 'react'
 import { 
     addPostActionCreator, 
     postInputActionCreator 
-} from '../../../../redux/state';
+} from '../../../../redux/profilePageReducer';
 import Button from '../../../Button/Button';
 import css from './PostArea.module.css'
 

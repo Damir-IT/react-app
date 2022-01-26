@@ -1,5 +1,5 @@
 import React from 'react'
-import { deletePostActionCreator } from '../../../redux/state'
+import { deletePostActionCreator } from '../../../redux/profilePageReducer'
 import Button from '../../Button/Button'
 import css from './Post.module.css'
 import PostAvatar from './PostAvatar/PostAvatar'
