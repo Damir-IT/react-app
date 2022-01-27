@@ -8,7 +8,7 @@ import Post from './Post/Post';
 
 
 const Profile = (props) => {
-
+  debugger;
   const makePost = props.profilePage.posts
     .map(
         post => <Post 

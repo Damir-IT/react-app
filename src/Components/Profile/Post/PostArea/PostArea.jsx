@@ -9,8 +9,8 @@ import css from './PostArea.module.css'
 
 const PostArea = (props) => {
    
-    
-    const addPost = () => props.dispatch( addPostActionCreator() )
+    debugger;
+    const addPost = () => props.dispatch( addPostActionCreator() );
     
 
     const postInput = (e) => {

@@ -11,7 +11,7 @@ import { Message } from './Components/Dialogs/Message/Message';
 
 
 function App(props) {
-  
+  debugger;
   return (
     <div 
       className="app">

@@ -1,5 +1,5 @@
 
-import { store } from './redux/state'
+import { store } from './redux/redux_store'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -9,12 +9,13 @@ import { BrowserRouter } from 'react-router-dom';
 
 
 
-const renderPage = () => {
+const renderPage = (store) => {
+
   ReactDOM.render(
     <BrowserRouter>
       <React.StrictMode>
         <App 
-          state={ store.getState() }
+          state={ store.getState()  }
           dispatch={ store.dispatch.bind(store) }
         />
       </React.StrictMode>
@@ -25,9 +26,12 @@ const renderPage = () => {
   reportWebVitals();
 
 }
-renderPage()
+ 
+renderPage(store)
 
-store.assign(renderPage);
+store.subscribe(() => {
+  renderPage(store); 
+});
 
 
 

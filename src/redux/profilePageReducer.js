@@ -2,7 +2,22 @@ const ADD_POST = 'ADD-POST';
 const DELETE_POST = 'DELETE-POST';
 const POST_INPUT = 'SHOW-POST-INPUT';
 
-const profilePageReducer = (action, state) => {
+const initialState = {
+    posts : [
+        {message: 'hi there'},
+        {message: 'hello, world'},
+        {message: 'barabashka'},
+        {message: 'pater noster'},
+        {message: 'qui es in celis'},
+        {message: 'Ragnar Logbrock'},
+        {message: 'You misspelled that one'},
+    ],
+    newPost : '',
+}
+
+
+const profilePageReducer = (state = initialState, action) => {
+    debugger;
     switch (action.type) {
         case ADD_POST:
             const newPost = { message : state.newPost };
@@ -27,27 +42,26 @@ const profilePageReducer = (action, state) => {
 const postInputActionCreator = (input) => ({
     type: POST_INPUT,
     input: input,
-})
-const addPostActionCreator = () => ({ type: ADD_POST })
-
+});
 const deletePostActionCreator = (post) => (
-    { type: DELETE_POST, 
-        post: post 
-    }
+    {type: DELETE_POST, post: post }
 )
+
+const addPostActionCreator = () => ({ type: ADD_POST });
+
 
 
 export  { 
     profilePageReducer,
 
     //variables
-    ADD_POST,
-    DELETE_POST,
-    POST_INPUT,
+        ADD_POST,
+        DELETE_POST,
+        POST_INPUT,
 
     //actionCreators
-    addPostActionCreator,
-    postInputActionCreator,
-    deletePostActionCreator,
+        addPostActionCreator,
+        postInputActionCreator,
+        deletePostActionCreator,
     };
 

@@ -5,12 +5,11 @@ import css from './Post.module.css'
 import PostAvatar from './PostAvatar/PostAvatar'
 
 const Post = (props) => {
-
-    
-
+    debugger;
     const deletePost = () => {
         props.dispatch( 
-            deletePostActionCreator(props.post));
+            deletePostActionCreator(props.post)
+            );
     }
 
     return (
