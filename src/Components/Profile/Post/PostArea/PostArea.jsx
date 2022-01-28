@@ -1,21 +1,13 @@
 import React from 'react'
-import { 
-    addPostActionCreator, 
-    postInputActionCreator 
-} from '../../../../redux/profilePageReducer';
 import Button from '../../../Button/Button';
 import css from './PostArea.module.css'
 
 
 const PostArea = (props) => {
-   
-    debugger;
-    const addPost = () => props.dispatch( addPostActionCreator() );
-    
 
-    const postInput = (e) => {
+    const changePostInput = (e) => {
         const input = e.target.value;
-        props.dispatch(postInputActionCreator(input))
+        props.changePostInput(input)
     }
    
     return (
@@ -23,13 +15,13 @@ const PostArea = (props) => {
             className={css.body}> 
             <textarea 
                 value={ props.newPost } 
-                onChange={ postInput } 
+                onChange={ changePostInput } 
                 className={ css.input } />
 
             <div 
                 className={css.button}>
                 <Button 
-                    onClick={ addPost } 
+                    onClick={ props.addPost } 
                     name='Post' />
             </div>
         </div>

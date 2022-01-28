@@ -26,7 +26,8 @@ const profilePageReducer = (state = initialState, action) => {
             return state;
 
         case DELETE_POST:
-            state.posts.splice(action.post, 1);
+            const index = state.posts.indexOf(action.post)
+            state.posts.splice(index, 1);
             return state;
 
         case POST_INPUT:
