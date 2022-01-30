@@ -1,4 +1,5 @@
 import  React  from 'react'
+import { StoreContext } from '../../redux/context'
 import { 
     messageInputActionCreator, 
     sendMessageActionCreator
@@ -6,28 +7,36 @@ import {
 import Dialogs from './Dialogs'
 
 
-const DialogsContainer = (props) => {
-    
-    // FUNCTIONALITY
-    const showMessage = (input) => {
-        props.dispatch(
-                messageInputActionCreator(input)
-            )
-    }
-    const sendMessage = () => {
-        props.dispatch(
-            sendMessageActionCreator()
-            )
-    }
+const DialogsContainer = () => {
+    debugger;
     return (
-        <Dialogs 
-            dialogs={ props.dialogPage.dialogs } 
-            messages={ props.dialogPage.messages }
-            showMessage={ showMessage }
-            sendMessage={ sendMessage }
-            newMessage={ props.dialogPage.newMessage}
-        />
+        <StoreContext.Consumer>
+            { store => {
+                const showMessage = (input) => {
+                    store.dispatch(
+                            messageInputActionCreator(input)
+                        )
+                }
+                const sendMessage = () => {
+                    store.dispatch(
+                        sendMessageActionCreator()
+                    )
+                }
+                const state = store.getState();
+                return (
+                    <Dialogs 
+                        dialogs ={ state.dialogsPage.dialogs } 
+                        messages={ state.dialogsPage.messages }
+                        showMessage={ showMessage }
+                        sendMessage={ sendMessage }
+                        newMessage={ state.dialogsPage.newMessage}
+                    />
+                )
+            }
+        }
+        </StoreContext.Consumer>
     )
+    
    
 }
 export default DialogsContainer;

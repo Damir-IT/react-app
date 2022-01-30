@@ -8,15 +8,13 @@ import PostContainer from './Post/PostContainer';
 
 
 const Profile = (props) => {
-  debugger;
-  const makePost = props.profilePage.posts
+  console.log(props.posts)
+  const postList = props.posts
     .map(
         post => <PostContainer
-                  dispatch={ props.dispatch } 
                   message={ post.message } 
                   post={ post }/> 
     )   
-    
   
     return (
       <div 
@@ -27,12 +25,10 @@ const Profile = (props) => {
           <Avatar />
           <ProfileInfo />
         </div >
-          <PostAreaContainer 
-            dispatch={ props.dispatch }
-            newPost={ props.profilePage.newPost} />
+          <PostAreaContainer />
           <div 
             className={ css.singlePost }>
-            { makePost }
+            { postList }
           </div>
       </div>
     )

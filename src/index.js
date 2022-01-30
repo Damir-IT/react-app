@@ -6,6 +6,8 @@ import './index.css';
 import { App } from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import { StoreContext } from './redux/context';
+
 
 
 
@@ -14,10 +16,9 @@ const renderPage = (store) => {
   ReactDOM.render(
     <BrowserRouter>
       <React.StrictMode>
-        <App 
-          state={ store.getState()  }
-          dispatch={ store.dispatch.bind(store) }
-        />
+        <StoreContext.Provider value={ store }>
+          <App />
+        </StoreContext.Provider>
       </React.StrictMode>
     </BrowserRouter>,
     document.getElementById('root')

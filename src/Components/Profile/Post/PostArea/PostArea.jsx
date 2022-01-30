@@ -7,7 +7,7 @@ const PostArea = (props) => {
 
     const changePostInput = (e) => {
         const input = e.target.value;
-        props.changePostInput(input)
+        props.changePostInput(input);
     }
    
     return (
@@ -19,7 +19,7 @@ const PostArea = (props) => {
                 className={ css.input } />
 
             <div 
-                className={css.button}>
+                className={ css.button }>
                 <Button 
                     onClick={ props.addPost } 
                     name='Post' />

@@ -2,26 +2,19 @@ import  React  from 'react'
 import DialogItem from './DialogItem/DialogItem'
 import css from './Dialogs.module.css'
 import { Message } from './Message/Message'
-import { Outlet } from 'react-router-dom'
-import { 
-    messageInputActionCreator, 
-    sendMessageActionCreator
-} from '../../redux/dialogsPageReducer'
 import Button from '../Button/Button'
 
 
 const Dialogs = (props) => {
     //DISPLAY
 
-    const dialogList = props.dialogs
-        .map(
+    const dialogList = props.dialogs.map(
                 dialog => <DialogItem 
                     name={ dialog.name } 
                     id={ dialog.id } />
             )
 
-    const messageList = props.messages
-        .map(
+    const messageList = props.messages.map(
                 m => <Message 
                     id={ m.id } 
                     message={ m.message } /> 

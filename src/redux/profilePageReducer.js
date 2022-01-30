@@ -17,7 +17,7 @@ const initialState = {
 
 
 const profilePageReducer = (state = initialState, action) => {
-    debugger;
+  
     switch (action.type) {
         case ADD_POST:
             const newPost = { message : state.newPost };
