@@ -2,12 +2,12 @@
 import './App.css';
 
 import Profile from './Components/Profile/Profile';
-import Dialogs from './Components/Dialogs/Dialogs';
 import NotFound from './Components/NotFound/NotFound';
 
 import { Routes, Route} from 'react-router-dom'
 import { Layout } from './Components/Layout/Layout';
 import { Message } from './Components/Dialogs/Message/Message';
+import DialogsContainer from './Components/Dialogs/DialogsContainer';
 
 
 function App(props) {
@@ -22,7 +22,7 @@ function App(props) {
             path='/' element={ <Layout /> } >
 
             <Route path='dialogs' element={
-              <Dialogs 
+              <DialogsContainer //contains all the BL functionality <Dialogs/> needs
                 dialogPage={ props.state.dialogsPage } 
                 dispatch={ props.dispatch }/> }> 
               <Route path='dialogs/:id' element={ <Message /> } />

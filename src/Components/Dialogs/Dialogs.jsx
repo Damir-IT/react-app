@@ -13,14 +13,14 @@ import Button from '../Button/Button'
 const Dialogs = (props) => {
     //DISPLAY
 
-    const dialogList = props.dialogPage.dialogs
+    const dialogList = props.dialogs
         .map(
                 dialog => <DialogItem 
                     name={ dialog.name } 
                     id={ dialog.id } />
             )
 
-    const messageList = props.dialogPage.messages
+    const messageList = props.messages
         .map(
                 m => <Message 
                     id={ m.id } 
@@ -30,14 +30,10 @@ const Dialogs = (props) => {
     // FUNCTIONALITY
     const showMessage = (e) => {
         const input = e.target.value;
-        props.dispatch(
-                messageInputActionCreator(input)
-            )
+        props.showMessage(input)
     }
     const sendMessage = () => {
-        props.dispatch(
-            sendMessageActionCreator()
-            )
+        props.sendMessage()
     }
     
     //JSX MARKUP
@@ -52,7 +48,7 @@ const Dialogs = (props) => {
                 className={css.dialogWindow}>
                 <p className={ css.message }>{ messageList }</p>
                 <textarea
-                     value={ props.dialogPage.newMessage }
+                     value={ props.newMessage }
                      className={ css.input } 
                      onChange={ showMessage }/>
                 <div className={ css.button }>
