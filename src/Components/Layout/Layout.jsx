@@ -12,7 +12,13 @@ const Layout = ( props ) => {
             <div className={ css.menu }>
                 <Menu />
             </div>
-            <Outlet />
+            <Outlet /> 
+            {/* 
+                <Outlet/> is a place holder that tells Router
+                where to put all the rendered content, once
+                the user is in path.
+                Meanwhile the Layout will remain the same
+             */}
         </div>
     
     )

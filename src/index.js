@@ -14,9 +14,11 @@ import { Provider } from 'react-redux';
 const renderPage = (store) => {
 
   ReactDOM.render(
-    <BrowserRouter>
+    <BrowserRouter> 
+    {/* BrowserRouter allows SPA realisation */}
+    {/* Componetns within can access the <Link> and <NavLink> */}
       <React.StrictMode>
-        <Provider store={ store }>
+        <Provider store={ store }> {/* Manages store /more info below */}
           <App />
         </Provider> 
       </React.StrictMode>
@@ -31,10 +33,26 @@ const renderPage = (store) => {
 renderPage(store)
 
 store.subscribe(() => {
+  // pass the render func to BL:
+  
+  //subscribe = renderPage(store)
+
+  //subsribe(); every time something changes
+  // to rerender the page
   renderPage(store); 
 });
 
+//  Description 
+//Here how it works under the hood
+// const StoreContext = React.createContext(null);
 
+// const Provider = (store) => {
+//   return (
+//     <StoreContext.Provider value={ props.store}>
+//       {props.children}
+//     </StoreContext.Provider>
+//   )
+// }
 
 
 
