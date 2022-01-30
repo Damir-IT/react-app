@@ -6,7 +6,7 @@ import PostAvatar from './PostAvatar/PostAvatar'
 const Post = (props) => {
     debugger;
     const deletePost = () => {
-        props.deletePost()
+        props.deletePost(props.post)
     }
 
     return (
@@ -17,7 +17,7 @@ const Post = (props) => {
             </div>
             <div 
                 className={css.postText}>
-                { props.messages }
+                { props.post.message }
             </div>
             <div 
                 className={ css.button }>

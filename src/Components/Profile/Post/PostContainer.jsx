@@ -1,29 +1,25 @@
-import React from 'react'
-import { StoreContext } from '../../../redux/context'
+
+import { connect } from 'react-redux'
 import { deletePostActionCreator } from '../../../redux/profilePageReducer'
 import Post  from './Post'
 
-const PostContainer = (props) => {
-    return (
-        <StoreContext.Consumer>
-            {store => {
-                const deletePost = () => {
-                    store.dispatch( 
-                        deletePostActionCreator(props.post)
-                        );
-                }
-                return(
-                    <Post 
-                        deletePost={ deletePost } 
-                        messages={ props.message }
-                        />
-                )
-
-                }
-                
-            }
-        </StoreContext.Consumer>
-    )
+const mapStateToProps = (state) => {
+    return {
+        posts: state.profilePage.posts
+    }
 }
+const mapDispatchToProps = (dispatch) => {
+    return {
+        deletePost: (post) => {
+            dispatch(deletePostActionCreator(post));
+        },
+
+    }
+}
+
+const PostContainer = connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(Post);
 
 export default PostContainer;

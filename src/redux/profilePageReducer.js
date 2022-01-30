@@ -19,20 +19,31 @@ const initialState = {
 const profilePageReducer = (state = initialState, action) => {
   
     switch (action.type) {
-        case ADD_POST:
-            const newPost = { message : state.newPost };
-            state.posts.push(newPost)
-            state.newPost = '' ;
-            return state;
+        case ADD_POST: {
 
-        case DELETE_POST:
+            const newPost = { message : state.newPost };
+            const newState = {...state}
+            newState.posts = [...state.posts]
+            newState.posts.push(newPost)
+            newState.newPost = '' ;
+            return newState;
+        }
+
+        case DELETE_POST: {
             const index = state.posts.indexOf(action.post)
             state.posts.splice(index, 1);
-            return state;
 
-        case POST_INPUT:
-            state.newPost = action.input;
-            return state;
+            const newState = {...state};
+            newState.posts = [...state.posts];
+            return newState;
+        }
+
+        case POST_INPUT: {
+            const newState = {...state}
+            newState.newPost = action.input
+            return newState;
+
+        }
         default:
             return state;
     }

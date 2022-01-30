@@ -8,12 +8,7 @@ import PostContainer from './Post/PostContainer';
 
 
 const Profile = (props) => { 
-  const postList = props.posts
-    .map(
-        post => <PostContainer
-                  message={ post.message } 
-                  post={ post }/> 
-    )   
+    const postList = props.posts.map(p => <PostContainer post={ p } />)
   
     return (
       <div 
