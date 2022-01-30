@@ -3,15 +3,15 @@ import Banner from './Banner/Banner';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 import css from "./Profile.module.css"
 import Avatar from './Avatar/Avatar';
-import PostArea from './Post/PostArea/PostArea';
-import Post from './Post/Post';
+import PostAreaContainer from './Post/PostArea/PostAreaContainer';
+import PostContainer from './Post/PostContainer';
 
 
 const Profile = (props) => {
-
+  debugger;
   const makePost = props.profilePage.posts
     .map(
-        post => <Post 
+        post => <PostContainer
                   dispatch={ props.dispatch } 
                   message={ post.message } 
                   post={ post }/> 
@@ -27,7 +27,7 @@ const Profile = (props) => {
           <Avatar />
           <ProfileInfo />
         </div >
-          <PostArea 
+          <PostAreaContainer 
             dispatch={ props.dispatch }
             newPost={ props.profilePage.newPost} />
           <div 

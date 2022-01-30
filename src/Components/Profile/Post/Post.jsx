@@ -1,16 +1,12 @@
 import React from 'react'
-import { deletePostActionCreator } from '../../../redux/state'
 import Button from '../../Button/Button'
 import css from './Post.module.css'
 import PostAvatar from './PostAvatar/PostAvatar'
 
 const Post = (props) => {
-
-    
-
+    debugger;
     const deletePost = () => {
-        props.dispatch( 
-            deletePostActionCreator(props.post));
+        props.deletePost()
     }
 
     return (
@@ -21,11 +17,12 @@ const Post = (props) => {
             </div>
             <div 
                 className={css.postText}>
-                { props.message }
+                { props.messages }
             </div>
             <div 
                 className={ css.button }>
-                <Button name='Delete' onClick={ deletePost } />
+                <Button name='Delete' 
+                    onClick={ deletePost } />
             </div>
         </div>
     )
