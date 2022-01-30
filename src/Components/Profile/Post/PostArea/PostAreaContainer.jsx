@@ -1,5 +1,5 @@
-import React from 'react'
-import { StoreContext } from '../../../../redux/context';
+
+import { connect } from 'react-redux';
 import { 
     addPostActionCreator, 
     postInputActionCreator 
@@ -7,33 +7,22 @@ import {
 import PostArea from './PostArea';
 
 
-
-
-const PostAreaContainer = () => {
-    return (
-        <StoreContext.Consumer>
-            {store =>{
-
-                const addPost = () => store
-                    .dispatch( addPostActionCreator() );
-        
-    
-                const changePostInput = (input) => {
-                    store.dispatch(
-                    postInputActionCreator(input)
-                    )
-                }     
-                return (  
-                    <PostArea 
-                        changePostInput={ changePostInput } 
-                        addPost={ addPost } 
-                        newPost={ store.getState().profilePage.newPost }
-                    />
-                )
-            }
-            }
-    </StoreContext.Consumer>
-    )
+const mapStateToProps = (state) => {
+    return {
+        newPost: state.profilePage.newPost
+    }
 }
-
+const mapDispatchToProps = (dispatch) => {
+    return {
+        changePostInput: (input) => {
+            dispatch(postInputActionCreator(input))
+        },
+        addPost: () =>{ 
+            dispatch(addPostActionCreator()) }
+    }
+}
+const PostAreaContainer = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(PostArea);
 export default PostAreaContainer;

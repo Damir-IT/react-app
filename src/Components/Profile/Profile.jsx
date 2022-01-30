@@ -7,8 +7,7 @@ import PostAreaContainer from './Post/PostArea/PostAreaContainer';
 import PostContainer from './Post/PostContainer';
 
 
-const Profile = (props) => {
-  console.log(props.posts)
+const Profile = (props) => { 
   const postList = props.posts
     .map(
         post => <PostContainer

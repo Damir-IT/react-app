@@ -6,7 +6,7 @@ import './index.css';
 import { App } from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-import { StoreContext } from './redux/context';
+import { Provider } from 'react-redux';
 
 
 
@@ -16,9 +16,9 @@ const renderPage = (store) => {
   ReactDOM.render(
     <BrowserRouter>
       <React.StrictMode>
-        <StoreContext.Provider value={ store }>
+        <Provider store={ store }>
           <App />
-        </StoreContext.Provider>
+        </Provider> 
       </React.StrictMode>
     </BrowserRouter>,
     document.getElementById('root')

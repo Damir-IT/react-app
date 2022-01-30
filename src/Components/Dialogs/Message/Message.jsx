@@ -1,4 +1,4 @@
-import Avatar from "../../Profile/Avatar/Avatar";
+
 import css from './Message.module.css';
 
 const Message = (props) => {
