@@ -26,7 +26,7 @@ function App() {
             and an element (component that should be called
             when the user is in path) attributes
           */}
-            <Route path='dialogs' 
+            <Route path='dialogs/*' 
               element={ <DialogsContainer /> }> 
                {/*
                ContainerComponent is there to provide all the required BL

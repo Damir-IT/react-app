@@ -17,6 +17,7 @@ const mapDispatchToProps = (dispatch) => {
     //returns an object with dispatch atrrs 
     //that will be passed to props
     //during the second call
+    
   }
 }
 
