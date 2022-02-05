@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from '../Button/Button'
 
-export default (props) => {
+const User = (props) => {
   return (
     <div>
       <div>
@@ -26,3 +26,5 @@ export default (props) => {
     </div>
   )
 }
+
+export default User
