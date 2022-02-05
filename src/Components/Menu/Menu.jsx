@@ -8,7 +8,7 @@ const Menu = () => {
         <Link to='/'>Profile</Link>
           <Link to='/dialogs'>Dialogs</Link>
           <Link to='/music'>Music</Link>
-          <Link to='/friends'>Friend</Link>
+          <Link to='/users'>Users</Link>
           <Link to='/about'>About</Link>
         </div>
     )
