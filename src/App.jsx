@@ -1,11 +1,11 @@
 import './App.css'
-import NotFound from './Components/NotFound/NotFound'
+import NotFound from './components/NotFound/NotFound'
 import { Routes, Route } from 'react-router-dom'
-import { Layout } from './Components/Layout/Layout'
-import { Message } from './Components/Dialogs/Message/Message'
-import DialogsContainer from './Components/Dialogs/DialogsContainer'
-import ProfileContainer from './Components/Profile/ProfileContainer'
-import UsersPageContainer from './Components/Users/UsersPageContainer'
+import { Layout } from './components/Layout/Layout'
+import { Message } from './components/Dialogs/Message/Message'
+import DialogsContainer from './components/Dialogs/DialogsContainer'
+import ProfileContainer from './components/Profile/ProfileContainer'
+import UsersPageContainer from './components/Users/UsersPageContainer'
 
 function App() {
   return (

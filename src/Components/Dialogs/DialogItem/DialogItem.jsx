@@ -1,21 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import css from './../Dialogs.module.css'
+import css from '../Dialogs.module.css'
 
 const DialogItem = (props) => {
+  const path = `${props.id}`
 
-    const path =`${props.id}`;
-
-    return (
-        <div>
-            <Link 
-                className={ css.dialogItem } 
-                to={ path }>
-                { props.name }
-            </Link>
-        </div>
-    )
+  return (
+    <div>
+      <Link className={css.dialogItem} to={path}>
+        {props.name}
+      </Link>
+    </div>
+  )
 }
 
-
-export default DialogItem;
+export default DialogItem

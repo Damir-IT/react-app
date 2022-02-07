@@ -1,5 +1,6 @@
-.button_container {
+.active_page {
+  font-weight: 900;
+}
+.container {
   text-align: center;
-  padding: 5em auto;
-  margin: 1em auto;
 }
