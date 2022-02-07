@@ -10,6 +10,7 @@ import {
   unfollowAC,
 } from '../../redux/usersPageReducer'
 import UsersPage from './UsersPage'
+import Preloader from '../../layouts/preload/Preloader'
 
 class UserPageContainer extends React.Component {
   componentDidMount() {
@@ -45,16 +46,19 @@ class UserPageContainer extends React.Component {
   }
   render = () => {
     return (
-      <UsersPage
-        pageSplitUsers={this.pageSplitUsers}
-        onPageChange={this.onPageChange}
-        users={this.props.users}
-        pageSize={this.props.pageSize}
-        totalUserCount={this.props.totalUserCount}
-        currentPage={this.props.currentPage}
-        follow={this.props.follow}
-        unfollow={this.props.unfollow}
-      />
+      <>
+        {this.props.isFetching ? <Preloader /> : null}
+        <UsersPage
+          pageSplitUsers={this.pageSplitUsers}
+          onPageChange={this.onPageChange}
+          users={this.props.users}
+          pageSize={this.props.pageSize}
+          totalUserCount={this.props.totalUserCount}
+          currentPage={this.props.currentPage}
+          follow={this.props.follow}
+          unfollow={this.props.unfollow}
+        />
+      </>
     )
   }
 }
@@ -64,6 +68,7 @@ const mapStateToProps = (state) => {
     pageSize: state.usersPage.pageSize,
     totalUserCount: state.usersPage.totalUserCount,
     currentPage: state.usersPage.currentPage,
+    isFetching: state.usersPage.isFetching,
   }
 }
 const mapDispatchToProps = (dispatch) => {

@@ -8,6 +8,7 @@ const initialState = {
   totalUserCount: 0,
   pageSize: 10,
   currentPage: 1,
+  isFetching: false,
 }
 
 const usersPageReducer = (state = initialState, action) => {
@@ -61,6 +62,7 @@ const setCurrentPageAC = (currentPage) => ({
   type: SET_CURRENT_PAGE,
   currentPage,
 })
+const loadingScreenAC = () => {}
 
 export {
   usersPageReducer,

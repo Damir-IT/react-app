@@ -1,0 +1,14 @@
+.Preloader {
+  background-color: rgba(60, 55, 75, 0.8);
+  text-align: center;
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+.Preloader img {
+  margin: 20%;
+  height: 20%;
+  width: auto;
+}
