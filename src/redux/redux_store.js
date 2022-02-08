@@ -1,7 +1,7 @@
 import { combineReducers, createStore } from 'redux'
-import { dialogsPageReducer } from './dialogsPageReducer'
-import { profilePageReducer } from './profilePageReducer'
-import { usersPageReducer } from './usersPageReducer'
+import { dialogsPageReducer } from './reducers/dialogsPageReducer'
+import { profilePageReducer } from './reducers/profilePageReducer'
+import { usersPageReducer } from './reducers/usersPageReducer'
 
 const reducers = combineReducers({
   profilePage: profilePageReducer,

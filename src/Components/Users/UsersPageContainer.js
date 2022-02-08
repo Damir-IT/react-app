@@ -8,7 +8,7 @@ import {
   setTotalUserCountAC,
   setUsersAC,
   unfollowAC,
-} from '../../redux/usersPageReducer'
+} from '../../redux/reducers/usersPageReducer'
 import UsersPage from './UsersPage'
 import Preloader from '../../layouts/preload/Preloader'
 

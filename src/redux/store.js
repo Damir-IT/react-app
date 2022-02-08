@@ -1,5 +1,5 @@
-import { profilePageReducer } from './profilePageReducer'
-import { dialogsPageReducer } from './dialogsPageReducer'
+import { profilePageReducer } from './reducers/profilePageReducer'
+import { dialogsPageReducer } from './reducers/dialogsPageReducer'
 
 //how react-redux store works under the hood
 
