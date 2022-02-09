@@ -8,15 +8,7 @@ import {
 import Profile from './Profile'
 
 class ProfilePageContainer extends React.Component {
-  render = () => (
-    <Profile
-      posts={this.props.posts}
-      addPost={this.props.addPost}
-      deletePost={this.props.deletePost}
-      showPostInput={this.props.showPostInput}
-      newPost={this.props.newPost}
-    />
-  )
+  render = () => <Profile {...this.props} />
 }
 
 const mapStateToProps = (state) => {
