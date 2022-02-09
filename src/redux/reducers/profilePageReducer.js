@@ -1,7 +1,7 @@
 import {
   ADD_POST,
   DELETE_POST,
-  POST_INPUT,
+  SHOW_POST_INPUT,
 } from '../actions/profile_page/profilePageActionTypes'
 
 const initialState = {
@@ -34,7 +34,7 @@ export const profilePageReducer = (state = initialState, action) => {
         posts: [...state.posts],
       }
 
-    case POST_INPUT:
+    case SHOW_POST_INPUT:
       return {
         ...state,
         newPost: action.input,

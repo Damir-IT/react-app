@@ -1,38 +1,33 @@
+import React from 'react'
+import { connect } from 'react-redux'
+import {
+  addPost,
+  deletePost,
+  showPostInput,
+} from '../../redux/actions/profile_page/profilePageACs'
+import Profile from './Profile'
 
-import { connect } from 'react-redux';
-import Profile from './Profile';
+class ProfilePageContainer extends React.Component {
+  render = () => (
+    <Profile
+      posts={this.props.posts}
+      addPost={this.props.addPost}
+      deletePost={this.props.deletePost}
+      showPostInput={this.props.showPostInput}
+      newPost={this.props.newPost}
+    />
+  )
+}
 
-const mapStateToProps = (state) =>{
-  // state is passed automatically
+const mapStateToProps = (state) => {
   return {
-    //returns an object with state atrrs 
-    //that will be passed to props 
-    //during the second call 
     posts: state.profilePage.posts,
-  }
-}
-const mapDispatchToProps = (dispatch) => {
-  //dispatch passed automatically
-  return {
-    //returns an object with dispatch atrrs 
-    //that will be passed to props
-    //during the second call
-    
+    newPost: state.profilePage.newPost,
   }
 }
 
-const ProfileContainer = connect(
-  //1st function call
-  mapStateToProps, 
-  //sets all the state related props attrs
-  mapDispatchToProps, 
-  //sets all the dispatch related props attrs
-  )(
-    Profile
-      // 2nd function call
-      //calls the component 
-      //with the props set by 
-      //mapStateToProps || mapeDispatchToProps
-    );
-
-export default ProfileContainer;
+export default connect(mapStateToProps, {
+  addPost,
+  deletePost,
+  showPostInput,
+})(ProfilePageContainer)

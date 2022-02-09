@@ -3,8 +3,8 @@ import NotFound from './layouts/NotFound/NotFound'
 import { Routes, Route } from 'react-router-dom'
 import { Layout } from './layouts/Layout/Layout'
 import { Message } from './components/Dialogs/Message/Message'
-import DialogsContainer from './components/Dialogs/DialogsContainer'
-import ProfileContainer from './components/Profile/ProfileContainer'
+import DialogsPageContainer from './components/Dialogs/DialogsPageContainer'
+import ProfilePageContainer from './components/Profile/ProfileContainer'
 import UsersPageContainer from './components/Users/UsersPageContainer'
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
             and an element (component that should be called
             when the user is in path) attributes
           */}
-            <Route path="dialogs/*" element={<DialogsContainer />}>
+            <Route path="dialogs/*" element={<DialogsPageContainer />}>
               {/*
                ContainerComponent is there to provide all the required BL
                for the dumb component, that is there only to 
@@ -36,7 +36,7 @@ function App() {
               one can use <Outlet/> to fit all the called components there.
               NB! Check <Layout/>
              */}
-            <Route index element={<ProfileContainer />} />
+            <Route index element={<ProfilePageContainer />} />
             <Route path="users" element={<UsersPageContainer />} />
             <Route path="*" element={<NotFound />} />
           </Route>
