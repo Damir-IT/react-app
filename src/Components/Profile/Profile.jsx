@@ -5,7 +5,11 @@ import css from './Profile.module.css'
 import Avatar from './Avatar/Avatar'
 import PostInputArea from './Post/PostInputArea/PostInputArea'
 import Post from './Post/Post'
+import Preloader from '../../layouts/Preloader/Preloader'
 const Profile = (props) => {
+  if (!props.userProfile) {
+    return <Preloader />
+  }
   const postList = props.posts.map((p) => (
     <Post deletePost={props.deletePost} post={p} />
   ))
@@ -14,8 +18,9 @@ const Profile = (props) => {
     <div className={css.body}>
       <Banner />
       <div className={css.content}>
-        <Avatar />
-        <ProfileInfo />
+        <Avatar profilePhoto={props.userProfile.photos.large} />
+
+        <ProfileInfo profileStatus={props.userProfile.aboutMe} />
       </div>
       <PostInputArea
         showPostInput={props.showPostInput}

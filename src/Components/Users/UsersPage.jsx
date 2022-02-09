@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import Button from '../Button/Button'
 import css from './UsersPage.module.css'
 
@@ -18,10 +19,15 @@ const UsersPage = (props) => {
       {props.users.map((u) => (
         <div key={u.id}>
           <div>
-            <img
-              src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/ea7a3c32163929.567197ac70bda.png"
-              alt="#"
-            />
+            <NavLink to={'profile/' + u.id}>
+              <img
+                src={
+                  u.photo ||
+                  'https://mir-s3-cdn-cf.behance.net/project_modules/disp/ea7a3c32163929.567197ac70bda.png'
+                }
+                alt="#"
+              />
+            </NavLink>
           </div>
           <div>
             <div>{u.name}</div>

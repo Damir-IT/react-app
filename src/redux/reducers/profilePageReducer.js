@@ -1,6 +1,7 @@
 import {
   ADD_POST,
   DELETE_POST,
+  SET_USER_PROFILE,
   SHOW_POST_INPUT,
 } from '../actions/profile_page/profilePageActionTypes'
 
@@ -15,6 +16,7 @@ const initialState = {
     { message: 'You misspelled that one' },
   ],
   newPost: '',
+  userProfile: null,
 }
 
 export const profilePageReducer = (state = initialState, action) => {
@@ -38,6 +40,11 @@ export const profilePageReducer = (state = initialState, action) => {
       return {
         ...state,
         newPost: action.input,
+      }
+    case SET_USER_PROFILE:
+      return {
+        ...state,
+        userProfile: action.userProfile,
       }
     default:
       return state
