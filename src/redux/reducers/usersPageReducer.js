@@ -3,9 +3,11 @@ const UNFOLLOWED = 'UNFOLLOWED'
 const SET_USERS = 'SET-USERS'
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
 const SET_TOTAL_USER_COUNT = 'SET_TOTAL_USER_COUNT'
+const DISPLAY_LOADING_SCREEN = 'DISPLAY_LOADING_SCREEN'
+
 const initialState = {
   users: [],
-  totalUserCount: 0,
+  totalUserCount: 51,
   pageSize: 10,
   currentPage: 1,
   isFetching: false,
@@ -45,6 +47,11 @@ const usersPageReducer = (state = initialState, action) => {
       }
     case SET_TOTAL_USER_COUNT:
       return { ...state, totalUserCount: action.userCount }
+    case DISPLAY_LOADING_SCREEN:
+      return {
+        ...state,
+        isFetching: action.loading,
+      }
     default:
       return state
   }
@@ -62,7 +69,10 @@ const setCurrentPageAC = (currentPage) => ({
   type: SET_CURRENT_PAGE,
   currentPage,
 })
-const loadingScreenAC = () => {}
+const displayLoadingScreenAC = (loading) => ({
+  type: DISPLAY_LOADING_SCREEN,
+  loading,
+})
 
 export {
   usersPageReducer,
@@ -72,4 +82,5 @@ export {
   unfollowAC,
   setUsersAC,
   setCurrentPageAC,
+  displayLoadingScreenAC,
 }

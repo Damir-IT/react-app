@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import * as axios from 'axios'
-
 import {
+  displayLoadingScreenAC,
   followAC,
   setCurrentPageAC,
   setTotalUserCountAC,
@@ -10,19 +10,22 @@ import {
   unfollowAC,
 } from '../../redux/reducers/usersPageReducer'
 import UsersPage from './UsersPage'
-import Preloader from '../../layouts/preload/Preloader'
+import Preloader from '../../layouts/Preloader/Preloader'
 
 class UserPageContainer extends React.Component {
   componentDidMount() {
     //called every time the class Obj is created
+    this.props.displayLoadingScreen(true)
     axios //server call to get users
       .get(
         `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`
       )
       .then((response) => {
         this.props.setUsers(response.data.items) //gets user info from the server
-        this.props.setTotalUserCount(response.data.totalCount) //gets the total number of users present
+        this.props.displayLoadingScreen(false)
+        //this.props.setTotalUserCount(response.data.totalCount) //gets the total number of users present
       })
+
   }
   pageSplitUsers = () => {
     //splites all users into pages
@@ -35,6 +38,7 @@ class UserPageContainer extends React.Component {
     return splitPages
   }
   onPageChange = (pageNumber) => {
+    this.props.displayLoadingScreen(true)
     this.props.setCurrentPage(pageNumber)
     axios
       .get(
@@ -42,6 +46,7 @@ class UserPageContainer extends React.Component {
       )
       .then((response) => {
         this.props.setUsers(response.data.items)
+        this.props.displayLoadingScreen(false)
       })
   }
   render = () => {
@@ -78,6 +83,8 @@ const mapDispatchToProps = (dispatch) => {
     setUsers: (users) => dispatch(setUsersAC(users)),
     setCurrentPage: (currentPage) => dispatch(setCurrentPageAC(currentPage)),
     setTotalUserCount: (userCount) => dispatch(setTotalUserCountAC(userCount)),
+    displayLoadingScreen: (loading) =>
+      dispatch(displayLoadingScreenAC(loading)),
   }
 }
 // attr from mapStateToProps and mapDispatchToProps will be passed to UserPageContainer as props
