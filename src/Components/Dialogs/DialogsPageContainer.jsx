@@ -9,15 +9,7 @@ import DialogsPage from './DialogsPage'
 
 class DialogsPageContainer extends React.Component {
   render = () => {
-    return (
-      <DialogsPage
-        dialogs={this.props.dialogs}
-        messages={this.props.messages}
-        newMessage={this.props.newMessage}
-        showMessageInput={this.props.showMessageInput}
-        sendMessage={this.props.sendMessage}
-      />
-    )
+    return <DialogsPage {...this.props} />
   }
 }
 

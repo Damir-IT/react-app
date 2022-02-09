@@ -3,13 +3,14 @@ import { connect } from 'react-redux'
 import * as axios from 'axios'
 import UsersPage from './UsersPage'
 import Preloader from '../../layouts/Preloader/Preloader'
-import { 
+import {
   displayLoadingScreen,
   follow,
   setCurrentPage,
   setTotalUserCount,
   setUsers,
-  unfollow, } from '../../redux/actions/users_page/usersPageACs'
+  unfollow,
+} from '../../redux/actions/users_page/usersPageACs'
 
 class UserPageContainer extends React.Component {
   componentDidMount() {
@@ -24,7 +25,6 @@ class UserPageContainer extends React.Component {
         this.props.displayLoadingScreen(false)
         //this.props.setTotalUserCount(response.data.totalCount) //gets the total number of users present
       })
-
   }
   pageSplitUsers = () => {
     //splites all users into pages
@@ -53,14 +53,9 @@ class UserPageContainer extends React.Component {
       <>
         {this.props.isFetching ? <Preloader /> : null}
         <UsersPage
+          {...this.props}
           pageSplitUsers={this.pageSplitUsers}
           onPageChange={this.onPageChange}
-          users={this.props.users}
-          pageSize={this.props.pageSize}
-          totalUserCount={this.props.totalUserCount}
-          currentPage={this.props.currentPage}
-          follow={this.props.follow}
-          unfollow={this.props.unfollow}
         />
       </>
     )
@@ -89,13 +84,12 @@ const mapStateToProps = (state) => {
 
 // attr from mapStateToProps and mapDispatchToProps will be passed to UserPageContainer as props
 //you will be able to access them with this.props.[name]
-export default connect(mapStateToProps, 
-  {
-    //mapDispatchToProps can be passed just as an obj 
-    displayLoadingScreen,
-    follow,
-    setCurrentPage,
-    setTotalUserCount,
-    setUsers,
-    unfollow,
-  })(UserPageContainer)
+export default connect(mapStateToProps, {
+  //mapDispatchToProps can be passed just as an obj
+  displayLoadingScreen,
+  follow,
+  setCurrentPage,
+  setTotalUserCount,
+  setUsers,
+  unfollow,
+})(UserPageContainer)
