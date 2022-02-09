@@ -1,13 +1,17 @@
-import { ADD_POST, DELETE_POST, POST_INPUT } from './profilePageActionTypes'
+import {
+  ADD_POST,
+  DELETE_POST,
+  SHOW_POST_INPUT,
+} from './profilePageActionTypes'
 
-export const postInputActionCreator = (input) => ({
-  type: POST_INPUT,
+export const showPostInput = (input) => ({
+  type: SHOW_POST_INPUT,
   input: input,
 })
 
-export const deletePostActionCreator = (post) => ({
+export const deletePost = (post) => ({
   type: DELETE_POST,
   post: post,
 })
 
-export const addPostActionCreator = () => ({ type: ADD_POST })
+export const addPost = () => ({ type: ADD_POST })

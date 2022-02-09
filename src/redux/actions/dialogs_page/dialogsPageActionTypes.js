@@ -1,0 +1,2 @@
+export const SHOW_MESSAGE_INPUT = 'SHOW-MESSAGE-INPUT'
+export const SEND_MESSAGE = 'SEND-MESSAGE'

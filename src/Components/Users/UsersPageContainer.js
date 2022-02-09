@@ -1,16 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import * as axios from 'axios'
-import {
-  displayLoadingScreenAC,
-  followAC,
-  setCurrentPageAC,
-  setTotalUserCountAC,
-  setUsersAC,
-  unfollowAC,
-} from '../../redux/reducers/usersPageReducer'
 import UsersPage from './UsersPage'
 import Preloader from '../../layouts/Preloader/Preloader'
+import { 
+  displayLoadingScreen,
+  follow,
+  setCurrentPage,
+  setTotalUserCount,
+  setUsers,
+  unfollow, } from '../../redux/actions/users_page/usersPageACs'
 
 class UserPageContainer extends React.Component {
   componentDidMount() {
@@ -76,17 +75,27 @@ const mapStateToProps = (state) => {
     isFetching: state.usersPage.isFetching,
   }
 }
-const mapDispatchToProps = (dispatch) => {
-  return {
-    follow: (userID) => dispatch(followAC(userID)),
-    unfollow: (userID) => dispatch(unfollowAC(userID)),
-    setUsers: (users) => dispatch(setUsersAC(users)),
-    setCurrentPage: (currentPage) => dispatch(setCurrentPageAC(currentPage)),
-    setTotalUserCount: (userCount) => dispatch(setTotalUserCountAC(userCount)),
-    displayLoadingScreen: (loading) =>
-      dispatch(displayLoadingScreenAC(loading)),
-  }
-}
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     follow: (userID) => dispatch(followAC(userID)),
+//     unfollow: (userID) => dispatch(unfollowAC(userID)),
+//     setUsers: (users) => dispatch(setUsersAC(users)),
+//     setCurrentPage: (currentPage) => dispatch(setCurrentPageAC(currentPage)),
+//     setTotalUserCount: (userCount) => dispatch(setTotalUserCountAC(userCount)),
+//     displayLoadingScreen: (loading) =>
+//       dispatch(displayLoadingScreenAC(loading)),
+//   }
+// }
+
 // attr from mapStateToProps and mapDispatchToProps will be passed to UserPageContainer as props
 //you will be able to access them with this.props.[name]
-export default connect(mapStateToProps, mapDispatchToProps)(UserPageContainer)
+export default connect(mapStateToProps, 
+  {
+    //mapDispatchToProps can be passed just as an obj 
+    displayLoadingScreen,
+    follow,
+    setCurrentPage,
+    setTotalUserCount,
+    setUsers,
+    unfollow,
+  })(UserPageContainer)

@@ -1,9 +1,11 @@
-const FOLLOWED = 'FOLLOWED'
-const UNFOLLOWED = 'UNFOLLOWED'
-const SET_USERS = 'SET-USERS'
-const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
-const SET_TOTAL_USER_COUNT = 'SET_TOTAL_USER_COUNT'
-const DISPLAY_LOADING_SCREEN = 'DISPLAY_LOADING_SCREEN'
+import { 
+  FOLLOWED, 
+  UNFOLLOWED, 
+  SET_USERS, 
+  SET_CURRENT_PAGE, 
+  SET_TOTAL_USER_COUNT, 
+  DISPLAY_LOADING_SCREEN
+} from "../actions/users_page/usersPageActionTypes"
 
 const initialState = {
   users: [],
@@ -13,7 +15,7 @@ const initialState = {
   isFetching: false,
 }
 
-const usersPageReducer = (state = initialState, action) => {
+export const usersPageReducer = (state = initialState, action) => {
   switch (action.type) {
     case FOLLOWED:
       return {
@@ -55,32 +57,4 @@ const usersPageReducer = (state = initialState, action) => {
     default:
       return state
   }
-}
-
-//ACTION-CREATORS
-const followAC = (userID) => ({ type: FOLLOWED, userID })
-const unfollowAC = (userID) => ({ type: UNFOLLOWED, userID })
-const setUsersAC = (users) => ({ type: SET_USERS, users })
-const setTotalUserCountAC = (userCount) => ({
-  type: SET_TOTAL_USER_COUNT,
-  userCount,
-})
-const setCurrentPageAC = (currentPage) => ({
-  type: SET_CURRENT_PAGE,
-  currentPage,
-})
-const displayLoadingScreenAC = (loading) => ({
-  type: DISPLAY_LOADING_SCREEN,
-  loading,
-})
-
-export {
-  usersPageReducer,
-  //ACTION-CREATORS
-  setTotalUserCountAC,
-  followAC,
-  unfollowAC,
-  setUsersAC,
-  setCurrentPageAC,
-  displayLoadingScreenAC,
 }

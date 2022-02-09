@@ -1,31 +1,29 @@
 import React from 'react'
-import Banner from './Banner/Banner';
-import ProfileInfo from './ProfileInfo/ProfileInfo';
-import css from "./Profile.module.css"
-import Avatar from './Avatar/Avatar';
-import PostAreaContainer from './Post/PostArea/PostAreaContainer';
-import PostContainer from './Post/PostContainer';
+import Banner from './Banner/Banner'
+import ProfileInfo from './ProfileInfo/ProfileInfo'
+import css from './Profile.module.css'
+import Avatar from './Avatar/Avatar'
+import PostInputArea from './Post/PostInputArea/PostInputArea'
+import Post from './Post/Post'
+const Profile = (props) => {
+  const postList = props.posts.map((p) => (
+    <Post deletePost={props.deletePost} post={p} />
+  ))
 
-
-const Profile = (props) => { 
-    const postList = props.posts.map(p => <PostContainer post={ p } />)
-  
-    return (
-      <div 
-        className={ css.body }>
-        <Banner />
-        <div 
-          className={ css.content }>
-          <Avatar />
-          <ProfileInfo />
-        </div >
-          <PostAreaContainer />
-          <div 
-            className={ css.singlePost }>
-            { postList }
-          </div>
+  return (
+    <div className={css.body}>
+      <Banner />
+      <div className={css.content}>
+        <Avatar />
+        <ProfileInfo />
       </div>
-    )
+      <PostInputArea
+        showPostInput={props.showPostInput}
+        newPost={props.newPost}
+        addPost={props.addPost}
+      />
+      <div className={css.singlePost}>{postList}</div>
+    </div>
+  )
 }
-export default Profile;
-
+export default Profile
