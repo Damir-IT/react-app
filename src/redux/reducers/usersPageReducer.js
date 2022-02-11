@@ -4,7 +4,8 @@ import {
   SET_USERS, 
   SET_CURRENT_PAGE, 
   SET_TOTAL_USER_COUNT, 
-  DISPLAY_LOADING_SCREEN
+  DISPLAY_LOADING_SCREEN,
+  SET_USER_ID
 } from "../actions/users_page/usersPageActionTypes"
 
 const initialState = {
@@ -54,6 +55,11 @@ export const usersPageReducer = (state = initialState, action) => {
         ...state,
         isFetching: action.loading,
       }
+      case SET_USER_ID:
+        return {
+          ...state,
+          userID: action.useID,
+        }
     default:
       return state
   }

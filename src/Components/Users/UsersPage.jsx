@@ -19,7 +19,7 @@ const UsersPage = (props) => {
       {props.users.map((u) => (
         <div key={u.id}>
           <div>
-            <NavLink to={'profile/' + u.id}>
+            <NavLink to={'/profile/' + u.id}>
               <img
                 src={
                   u.photo ||

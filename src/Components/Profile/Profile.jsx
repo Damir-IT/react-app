@@ -19,7 +19,6 @@ const Profile = (props) => {
       <Banner />
       <div className={css.content}>
         <Avatar profilePhoto={props.userProfile.photos.large} />
-
         <ProfileInfo profileStatus={props.userProfile.aboutMe} />
       </div>
       <PostInputArea
