@@ -9,14 +9,27 @@ import {
 import Profile from './Profile'
 import * as axios from 'axios'
 
+import { useParams } from 'react-router'
+
+const withRouter = (Component) => {
+  return (props) => {
+    debugger
+    const userID = useParams().userID
+    return <Component userID={userID} {...props} />
+  }
+}
+
 class ProfilePageContainer extends React.Component {
   componentDidMount = () => {
     axios //server call to get users
-      .get(`https://social-network.samuraijs.com/api/1.0/profile/2`)
+      .get(
+        `https://social-network.samuraijs.com/api/1.0/profile/${this.props.userID}`
+      )
       .then((response) => {
         this.props.setUserProfile(response.data)
       })
   }
+
   render = () => (
     <Profile {...this.props} userProfile={this.props.userProfile} />
   )
@@ -29,10 +42,10 @@ const mapStateToProps = (state) => {
     userProfile: state.profilePage.userProfile,
   }
 }
-
+const URLMatchedProfilePageContainer = withRouter(ProfilePageContainer)
 export default connect(mapStateToProps, {
   addPost,
   deletePost,
   showPostInput,
   setUserProfile,
-})(ProfilePageContainer)
+})(URLMatchedProfilePageContainer)

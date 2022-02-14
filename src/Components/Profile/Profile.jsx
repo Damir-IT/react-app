@@ -21,6 +21,7 @@ const Profile = (props) => {
         <Avatar profilePhoto={props.userProfile.photos.large} />
         <ProfileInfo profileStatus={props.userProfile.aboutMe} />
       </div>
+      {props.userProfile.fullName}
       <PostInputArea
         showPostInput={props.showPostInput}
         newPost={props.newPost}

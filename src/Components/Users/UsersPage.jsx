@@ -22,7 +22,7 @@ const UsersPage = (props) => {
             <NavLink to={'/profile/' + u.id}>
               <img
                 src={
-                  u.photo ||
+                  u.photos.small ||
                   'https://mir-s3-cdn-cf.behance.net/project_modules/disp/ea7a3c32163929.567197ac70bda.png'
                 }
                 alt="#"

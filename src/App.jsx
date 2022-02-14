@@ -36,7 +36,7 @@ function App() {
               one can use <Outlet/> to fit all the called components there.
               NB! Check <Layout/>
              */}
-            <Route path="profile/*" element={<ProfilePageContainer />} />
+            <Route path="profile/:userID" element={<ProfilePageContainer />} />
             <Route path="users" element={<UsersPageContainer />} />
             <Route path="*" element={<NotFound />} />
           </Route>
