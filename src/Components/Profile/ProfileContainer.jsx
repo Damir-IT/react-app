@@ -12,6 +12,9 @@ import * as axios from 'axios'
 import { useParams } from 'react-router'
 
 const withRouter = (Component) => {
+  //since withRouter is no longer there in react-router v6
+  //this is an alternative to allow HOC using within
+  // a class component
   return (props) => {
     debugger
     const userID = useParams().userID

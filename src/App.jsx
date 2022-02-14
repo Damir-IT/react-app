@@ -37,6 +37,7 @@ function App() {
               NB! Check <Layout/>
              */}
             <Route path="profile/:userID" element={<ProfilePageContainer />} />
+            <Route path="profile/" element={<ProfilePageContainer />} />
             <Route path="users" element={<UsersPageContainer />} />
             <Route path="*" element={<NotFound />} />
           </Route>

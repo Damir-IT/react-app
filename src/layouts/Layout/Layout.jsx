@@ -1,14 +1,13 @@
 import React from 'react'
 import { Outlet } from 'react-router'
-
-import Header from '../Header/Header'
+import HeaderContainer from '../Header/HeaderContainer'
 import { Menu } from '../Menu/Menu'
 import css from './Layout.module.css'
 
 const Layout = (props) => {
   return (
     <div>
-      <Header />
+      <HeaderContainer />
       <div className={css.menu}>
         <Menu />
       </div>
