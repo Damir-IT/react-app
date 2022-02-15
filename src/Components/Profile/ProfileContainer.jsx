@@ -16,7 +16,6 @@ const withRouter = (Component) => {
   //this is an alternative to allow HOC using within
   // a class component
   return (props) => {
-    debugger
     const userID = useParams().userID
     return <Component userID={userID} {...props} />
   }

@@ -2,6 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import Button from '../Button/Button'
 import css from './UsersPage.module.css'
+import * as axios from 'axios'
 
 const UsersPage = (props) => {
   return (
@@ -37,9 +38,52 @@ const UsersPage = (props) => {
           </div>
           <div>
             {u.followed ? (
-              <Button name="unfollow" onClick={() => props.unfollow(u.id)} />
+              <Button
+                name="unfollow"
+                onClick={() => {
+                  axios
+                    .delete(
+                      `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
+                      {
+                        withCredentials: true,
+                        headers: {
+                          'API-KEY': 'ac2a8633-91b1-4f6c-9022-b359ba8611e5',
+                        },
+                      }
+                    )
+                    .then((response) => {
+                      if (response.data.resultCode === 0) {
+                        props.unfollow(u.id)
+                        return
+                      }
+                      alert(response.data.messages)
+                    })
+                }}
+              />
             ) : (
-              <Button name="follow" onClick={() => props.follow(u.id)} />
+              <Button
+                name="follow"
+                onClick={() => {
+                  axios
+                    .post(
+                      `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
+                      {},
+                      {
+                        withCredentials: true,
+                        headers: {
+                          'API-KEY': 'ac2a8633-91b1-4f6c-9022-b359ba8611e5',
+                        },
+                      }
+                    )
+                    .then((response) => {
+                      if (response.data.resultCode == 0) {
+                        props.follow(u.id)
+                        return
+                      }
+                      alert(response.data.messages)
+                    })
+                }}
+              />
             )}
           </div>
         </div>
