@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import * as axios from 'axios'
 import UsersPage from './UsersPage'
 import Preloader from '../../layouts/Preloader/Preloader'
 import {
@@ -11,20 +10,16 @@ import {
   setUsers,
   unfollow,
 } from '../../redux/actions/users_page/usersPageACs'
+import { usersAPI } from '../../api/api'
 
 class UserPageContainer extends React.Component {
   componentDidMount() {
     //called every time the class Obj is created
     this.props.displayLoadingScreen(true)
-    axios //server call to get users
-      .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`,
-        {
-          withCredentials: true,
-        }
-      )
-      .then((response) => {
-        this.props.setUsers(response.data.items) //gets user info from the server
+    usersAPI
+      .getUsers(this.props.currentPage, this.props.pageSize)
+      .then((data) => {
+        this.props.setUsers(data.items) //gets user info from the server
         this.props.displayLoadingScreen(false)
         //this.props.setTotalUserCount(response.data.totalCount) //gets the total number of users present
       })
@@ -42,17 +37,10 @@ class UserPageContainer extends React.Component {
   onPageChange = (pageNumber) => {
     this.props.displayLoadingScreen(true)
     this.props.setCurrentPage(pageNumber)
-    axios
-      .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`,
-        {
-          withCredentials: true,
-        }
-      )
-      .then((response) => {
-        this.props.setUsers(response.data.items)
-        this.props.displayLoadingScreen(false)
-      })
+    usersAPI.setUsers(pageNumber, this.props.pageSize).then((data) => {
+      this.props.setUsers(data.items)
+      this.props.displayLoadingScreen(false)
+    })
   }
   render = () => {
     return (
@@ -76,22 +64,8 @@ const mapStateToProps = (state) => {
     isFetching: state.usersPage.isFetching,
   }
 }
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     follow: (userID) => dispatch(followAC(userID)),
-//     unfollow: (userID) => dispatch(unfollowAC(userID)),
-//     setUsers: (users) => dispatch(setUsersAC(users)),
-//     setCurrentPage: (currentPage) => dispatch(setCurrentPageAC(currentPage)),
-//     setTotalUserCount: (userCount) => dispatch(setTotalUserCountAC(userCount)),
-//     displayLoadingScreen: (loading) =>
-//       dispatch(displayLoadingScreenAC(loading)),
-//   }
-// }
 
-// attr from mapStateToProps and mapDispatchToProps will be passed to UserPageContainer as props
-//you will be able to access them with this.props.[name]
 export default connect(mapStateToProps, {
-  //mapDispatchToProps can be passed just as an obj
   displayLoadingScreen,
   follow,
   setCurrentPage,

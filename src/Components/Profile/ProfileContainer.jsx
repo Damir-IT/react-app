@@ -7,9 +7,9 @@ import {
   setUserProfile,
 } from '../../redux/actions/profile_page/profilePageACs'
 import Profile from './Profile'
-import * as axios from 'axios'
 
 import { useParams } from 'react-router'
+import { usersAPI } from '../../api/api'
 
 const withRouter = (Component) => {
   //since withRouter is no longer there in react-router v6
@@ -23,15 +23,11 @@ const withRouter = (Component) => {
 
 class ProfilePageContainer extends React.Component {
   componentDidMount = () => {
-    axios //server call to get users
-      .get(
-        `https://social-network.samuraijs.com/api/1.0/profile/${this.props.userID}`
-      )
-      .then((response) => {
-        this.props.setUserProfile(response.data)
-      })
+    usersAPI.getUserProfile(this.props.userID).then((data) => {
+      debugger
+      this.props.setUserProfile(data)
+    })
   }
-
   render = () => (
     <Profile {...this.props} userProfile={this.props.userProfile} />
   )
