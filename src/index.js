@@ -9,12 +9,11 @@ import { Provider } from 'react-redux'
 
 ReactDOM.render(
   <BrowserRouter>
-    {/* BrowserRouter allows SPA realisation */}
-    {/* Componetns within can access the <Link> and <NavLink> */}
+    {/* BrowserRouter is wrapped around components that will be able to access Routing functionality */}
     <React.StrictMode>
+      {/*  */}
       <Provider store={store}>
-        {' '}
-        {/* Manages store /more info below */}
+        {/* Manages store /more info in context.js */}
         <App />
       </Provider>
     </React.StrictMode>
@@ -23,15 +22,3 @@ ReactDOM.render(
 )
 
 reportWebVitals()
-
-//  Description
-//Here how it works under the hood
-// const StoreContext = React.createContext(null);
-
-// const Provider = (store) => {
-//   return (
-//     <StoreContext.Provider value={ props.store}>
-//       {props.children}
-//     </StoreContext.Provider>
-//   )
-// }

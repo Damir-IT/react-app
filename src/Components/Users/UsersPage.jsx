@@ -2,7 +2,6 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import Button from '../Button/Button'
 import css from './UsersPage.module.css'
-import { usersAPI } from '../../api/api'
 
 const UsersPage = (props) => {
   return (
@@ -44,18 +43,7 @@ const UsersPage = (props) => {
                 disabled={props.isBeingFollowed.some((id) => id === u.id)}
                 name="unfollow"
                 onClick={() => {
-                  props.enableFollowing(true, u.id)
-                  //userAPI is an axios.create() instance with baseURL headers and API-KEY to access the server
-                  usersAPI.unfollowUser(u.id).then((data) => {
-                    if (data.resultCode === 0) {
-                      props.unfollow(u.id)
-                      props.enableFollowing(false, u.id)
-
-                      return
-                    }
-                    props.enableFollowing(false, u.id)
-                    alert(data.messages) //displays an error message that comes with the data from server
-                  })
+                  props.unfollowUser(u.id)
                 }}
               />
             ) : (
@@ -63,17 +51,7 @@ const UsersPage = (props) => {
                 name="follow"
                 disabled={props.isBeingFollowed.some((id) => id === u.id)}
                 onClick={() => {
-                  props.enableFollowing(true, u.id)
-                  usersAPI.followUser(u.id).then((data) => {
-                    if (data.resultCode === 0) {
-                      props.follow(u.id)
-                      props.enableFollowing(false, u.id)
-                      return
-                    }
-                    props.enableFollowing(false, u.id)
-
-                    alert(data.messages)
-                  })
+                  props.followUser(u.id)
                 }}
               />
             )}

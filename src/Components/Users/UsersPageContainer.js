@@ -2,28 +2,16 @@ import React from 'react'
 import { connect } from 'react-redux'
 import UsersPage from './UsersPage'
 import Preloader from '../../layouts/Preloader/Preloader'
+import { setTotalUserCount } from '../../redux/actions/users_page/usersPageACs'
 import {
-  displayLoadingScreen,
-  enableFollowing,
-  follow,
-  setCurrentPage,
-  setTotalUserCount,
-  setUsers,
-  unfollow,
-} from '../../redux/actions/users_page/usersPageACs'
-import { usersAPI } from '../../api/api'
+  followUser,
+  getUsers,
+  unfollowUser,
+} from '../../redux/thunks/userPageThunks'
 
 class UserPageContainer extends React.Component {
   componentDidMount() {
-    //called every time the class Obj is created
-    this.props.displayLoadingScreen(true)
-    usersAPI
-      .getUsers(this.props.currentPage, this.props.pageSize)
-      .then((data) => {
-        this.props.setUsers(data.items) //gets user info from the server
-        this.props.displayLoadingScreen(false)
-        //this.props.setTotalUserCount(response.data.totalCount) //gets the total number of users present
-      })
+    this.props.getUsers(this.props.currentPage, this.props.pageSize)
   }
   pageSplitUsers = () => {
     //splites all users into pages
@@ -36,12 +24,7 @@ class UserPageContainer extends React.Component {
     return splitPages
   }
   onPageChange = (pageNumber) => {
-    this.props.displayLoadingScreen(true)
-    this.props.setCurrentPage(pageNumber)
-    usersAPI.getUsers(pageNumber, this.props.pageSize).then((data) => {
-      this.props.setUsers(data.items)
-      this.props.displayLoadingScreen(false)
-    })
+    this.props.getUsers(pageNumber, this.props.pageSize)
   }
   render = () => {
     return (
@@ -56,6 +39,7 @@ class UserPageContainer extends React.Component {
     )
   }
 }
+
 const mapStateToProps = (state) => {
   return {
     users: state.usersPage.users,
@@ -68,11 +52,8 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, {
-  displayLoadingScreen,
-  follow,
-  setCurrentPage,
   setTotalUserCount,
-  setUsers,
-  unfollow,
-  enableFollowing,
+  getUsers,
+  unfollowUser,
+  followUser,
 })(UserPageContainer)

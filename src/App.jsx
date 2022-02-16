@@ -13,8 +13,9 @@ function App() {
       <div className="app__main">
         <Routes>
           {/* 
-          Routes wraps the components 
-          that may access routing features
+          Routes wraps around the Route options.
+          When url path is matched the appropriate
+          component is displayed 
            */}
           <Route path="/" element={<Layout />}>
             {/* 
@@ -24,7 +25,7 @@ function App() {
           */}
             <Route path="dialogs/*" element={<DialogsPageContainer />}>
               {/*
-               ContainerComponent is there to provide all the required BL
+               ContainerComponent is there to provide all the required BLL
                for the dumb component, that is there only to 
                display the passed via props content.
                */}
@@ -37,9 +38,15 @@ function App() {
               NB! Check <Layout/>
              */}
             <Route path="profile/:userID" element={<ProfilePageContainer />} />
+            {/* 
+            :variable allows react router to understand, what should be loaded if something follows
+            */}
             <Route path="profile/" element={<ProfilePageContainer />} />
             <Route path="users" element={<UsersPageContainer />} />
             <Route path="*" element={<NotFound />} />
+            {/* 
+            Any other path, that is not listed above will result in a 'Not Found' page being loaded 
+            */}
           </Route>
         </Routes>
       </div>
