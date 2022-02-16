@@ -6,22 +6,13 @@ import Button from '../Button/Button'
 
 const DialogsPage = (props) => {
   //DISPLAY
-
   const dialogList = props.dialogs.map((dialog) => (
-    <DialogItem name={dialog.name} id={dialog.id} />
+    <DialogItem name={dialog.name} key={dialog.id} id={dialog.id} />
   ))
 
   const messageList = props.messages.map((m) => (
-    <Message id={m.id} message={m.message} />
+    <Message key={m.id} id={m.id} message={m.message} />
   ))
-  // FUNCTIONALITY
-  const showMessageInput = (e) => {
-    const input = e.target.value
-    props.showMessageInput(input)
-  }
-  const sendMessage = () => {
-    props.sendMessage()
-  }
 
   //JSX MARKUP
   return (
@@ -30,12 +21,14 @@ const DialogsPage = (props) => {
       <div className={css.dialogWindow}>
         <p className={css.message}>{messageList}</p>
         <textarea
-          value={props.newMessage}
+          value={props.newMessage} //displayes the BLL newMessage to make textarea a Controlled component
           className={css.input}
-          onChange={showMessageInput}
+          onChange={(e) => {
+            props.showMessageInput(e.target.value) //passes what the typed text to BLL
+          }}
         />
         <div className={css.button}>
-          <Button onClick={sendMessage} name="send" />
+          <Button onClick={props.sendMessage} name="send" />
         </div>
       </div>
     </div>

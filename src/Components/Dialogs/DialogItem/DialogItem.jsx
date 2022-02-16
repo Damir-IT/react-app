@@ -4,7 +4,6 @@ import css from '../DialogsPage.module.css'
 
 const DialogItem = (props) => {
   const path = `${props.id}`
-
   return (
     <div>
       <Link className={css.dialogItem} to={path}>
