@@ -38,27 +38,40 @@ const UsersPage = (props) => {
           </div>
           <div>
             {u.followed ? (
+              //depending on the boolean 'followed' conditional component is displayed
               <Button
+                //button is disabled if any of the user ID's is in the isBeingFollowed array
+                disabled={props.isBeingFollowed.some((id) => id === u.id)}
                 name="unfollow"
                 onClick={() => {
+                  props.enableFollowing(true, u.id)
+                  //userAPI is an axios.create() instance with baseURL headers and API-KEY to access the server
                   usersAPI.unfollowUser(u.id).then((data) => {
                     if (data.resultCode === 0) {
                       props.unfollow(u.id)
+                      props.enableFollowing(false, u.id)
+
                       return
                     }
-                    alert(data.messages)
+                    props.enableFollowing(false, u.id)
+                    alert(data.messages) //displays an error message that comes with the data from server
                   })
                 }}
               />
             ) : (
               <Button
                 name="follow"
+                disabled={props.isBeingFollowed.some((id) => id === u.id)}
                 onClick={() => {
+                  props.enableFollowing(true, u.id)
                   usersAPI.followUser(u.id).then((data) => {
                     if (data.resultCode === 0) {
                       props.follow(u.id)
+                      props.enableFollowing(false, u.id)
                       return
                     }
+                    props.enableFollowing(false, u.id)
+
                     alert(data.messages)
                   })
                 }}

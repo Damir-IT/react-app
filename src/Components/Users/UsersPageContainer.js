@@ -4,6 +4,7 @@ import UsersPage from './UsersPage'
 import Preloader from '../../layouts/Preloader/Preloader'
 import {
   displayLoadingScreen,
+  enableFollowing,
   follow,
   setCurrentPage,
   setTotalUserCount,
@@ -37,7 +38,7 @@ class UserPageContainer extends React.Component {
   onPageChange = (pageNumber) => {
     this.props.displayLoadingScreen(true)
     this.props.setCurrentPage(pageNumber)
-    usersAPI.setUsers(pageNumber, this.props.pageSize).then((data) => {
+    usersAPI.getUsers(pageNumber, this.props.pageSize).then((data) => {
       this.props.setUsers(data.items)
       this.props.displayLoadingScreen(false)
     })
@@ -62,6 +63,7 @@ const mapStateToProps = (state) => {
     totalUserCount: state.usersPage.totalUserCount,
     currentPage: state.usersPage.currentPage,
     isFetching: state.usersPage.isFetching,
+    isBeingFollowed: state.usersPage.isBeingFollowed,
   }
 }
 
@@ -72,4 +74,5 @@ export default connect(mapStateToProps, {
   setTotalUserCount,
   setUsers,
   unfollow,
+  enableFollowing,
 })(UserPageContainer)
