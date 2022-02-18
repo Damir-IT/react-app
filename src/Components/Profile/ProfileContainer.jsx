@@ -4,12 +4,12 @@ import {
   addPost,
   deletePost,
   showPostInput,
-  setUserProfile,
 } from '../../redux/actions/profile_page/profilePageACs'
 import Profile from './Profile'
 
 import { useParams } from 'react-router'
 import { usersAPI } from '../../api/api'
+import { getUserProfile } from '../../redux/thunks/userPageThunks'
 
 const withRouter = (Component) => {
   //since withRouter is no longer there in react-router v6
@@ -23,10 +23,7 @@ const withRouter = (Component) => {
 
 class ProfilePageContainer extends React.Component {
   componentDidMount = () => {
-    usersAPI.getUserProfile(this.props.userID).then((data) => {
-      debugger
-      this.props.setUserProfile(data)
-    })
+    this.props.getUserProfile(this.props.userID)
   }
   render = () => (
     <Profile {...this.props} userProfile={this.props.userProfile} />
@@ -45,5 +42,5 @@ export default connect(mapStateToProps, {
   addPost,
   deletePost,
   showPostInput,
-  setUserProfile,
+  getUserProfile,
 })(URLMatchedProfilePageContainer)

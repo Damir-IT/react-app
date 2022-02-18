@@ -1,4 +1,5 @@
 import { usersAPI } from '../../api/api'
+import { setUserProfile } from '../actions/profile_page/profilePageACs'
 import {
   displayLoadingScreen,
   enableFollowing,
@@ -47,6 +48,14 @@ export const followUser = (userID) => {
       }
       dispatch(enableFollowing(false, userID))
       alert(data.messages) //displays an error message that comes with the data from server
+    })
+  }
+}
+
+export const getUserProfile = (userID) => {
+  return (dispatch) => {
+    usersAPI.getUserProfile(userID).then((data) => {
+      dispatch(setUserProfile(data))
     })
   }
 }

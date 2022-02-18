@@ -41,7 +41,7 @@ function App() {
             {/* 
             :variable allows react router to understand, what should be loaded if something follows
             */}
-            <Route path="profile/" element={<ProfilePageContainer />} />
+
             <Route path="users" element={<UsersPageContainer />} />
             <Route path="*" element={<NotFound />} />
             {/* 
