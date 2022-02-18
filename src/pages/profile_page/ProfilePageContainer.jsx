@@ -5,10 +5,8 @@ import {
   deletePost,
   showPostInput,
 } from '../../redux/actions/profile_page/profilePageACs'
-import Profile from './Profile'
-
+import Profile from './ProfilePage'
 import { useParams } from 'react-router'
-import { usersAPI } from '../../api/api'
 import { getUserProfile } from '../../redux/thunks/userPageThunks'
 
 const withRouter = (Component) => {

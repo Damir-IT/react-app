@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import css from '../DialogsPage.module.css'
+import css from '../../../pages/dialogs_page/DialogsPage.module.css'
 
 const DialogItem = (props) => {
   const path = `${props.id}`

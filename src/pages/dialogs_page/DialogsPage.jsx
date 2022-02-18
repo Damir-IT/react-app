@@ -1,8 +1,8 @@
 import React from 'react'
-import DialogItem from './DialogItem/DialogItem'
+import DialogItem from '../../components/Dialogs/DialogItem/DialogItem'
 import css from './DialogsPage.module.css'
-import { Message } from './Message/Message'
-import Button from '../Button/Button'
+import { Message } from '../../components/Dialogs/Message/Message'
+import Button from '../../components/Button/Button'
 
 const DialogsPage = (props) => {
   //DISPLAY

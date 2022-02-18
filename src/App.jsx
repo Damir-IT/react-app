@@ -3,9 +3,10 @@ import NotFound from './layouts/NotFound/NotFound'
 import { Routes, Route } from 'react-router-dom'
 import { Layout } from './layouts/Layout/Layout'
 import { Message } from './components/Dialogs/Message/Message'
-import DialogsPageContainer from './components/Dialogs/DialogsPageContainer'
-import ProfilePageContainer from './components/Profile/ProfileContainer'
-import UsersPageContainer from './components/Users/UsersPageContainer'
+
+import ProfilePageContainer from './pages/profile_page/ProfilePageContainer'
+import UsersPageContainer from './pages/users_page/UsersPageContainer'
+import DialogsPageContainer from './pages/dialogs_page/DialogsPageContainer'
 
 function App() {
   return (

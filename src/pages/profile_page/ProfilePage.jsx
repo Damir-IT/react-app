@@ -1,11 +1,12 @@
 import React from 'react'
-import Banner from './Banner/Banner'
-import ProfileInfo from './ProfileInfo/ProfileInfo'
-import css from './Profile.module.css'
-import Avatar from './Avatar/Avatar'
-import PostInputArea from './Post/PostInputArea/PostInputArea'
-import Post from './Post/Post'
+import Banner from '../../components/Profile/Banner/Banner'
+import ProfileInfo from '../../components/Profile/ProfileInfo/ProfileInfo'
+import css from './ProfilePage.module.css'
+import Avatar from '../../components/Profile/Avatar/Avatar'
+import PostInputArea from '../../components/Profile/Post/PostInputArea/PostInputArea'
+import Post from '../../components/Profile/Post/Post'
 import Preloader from '../../layouts/Preloader/Preloader'
+
 const Profile = (props) => {
   if (!props.userProfile) {
     return <Preloader />
