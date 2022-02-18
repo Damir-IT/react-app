@@ -41,7 +41,7 @@ export const usersAPI = {
   },
 }
 export const authAPI = {
-  authenticateUser() {
+  me() {
     return api.get('auth/me').then((response) => {
       return response.data
     })
