@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import { getUserProfile } from '../../redux/thunks/userPageThunks'
 
 const MenuContainer = (props) => {
-  alert(props.userID)
   return <Menu {...props} />
 }
 const mapStateToProps = (state) => {
