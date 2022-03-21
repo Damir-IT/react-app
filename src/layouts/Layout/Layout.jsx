@@ -1,7 +1,7 @@
 import React from 'react'
 import { Outlet } from 'react-router'
 import HeaderContainer from '../Header/HeaderContainer'
-import { Menu } from '../Menu/Menu'
+import MenuContainer from '../Menu/MenuContainer'
 import css from './Layout.module.css'
 
 const Layout = (props) => {
@@ -9,7 +9,7 @@ const Layout = (props) => {
     <div>
       <HeaderContainer />
       <div className={css.menu}>
-        <Menu />
+        <MenuContainer />
       </div>
       <Outlet />
       {/* 

@@ -3,6 +3,8 @@ import {
   DELETE_POST,
   SET_USER_PROFILE,
   SHOW_POST_INPUT,
+  GET_CURRENT_USER,
+  SET_CURRENT_USER_PROFILE,
 } from '../actions/profile_page/profilePageActionTypes'
 
 const initialState = {
@@ -17,6 +19,7 @@ const initialState = {
   ],
   newPost: '',
   userProfile: null,
+  currentUser: null,
 }
 
 export const profilePageReducer = (state = initialState, action) => {
@@ -45,6 +48,16 @@ export const profilePageReducer = (state = initialState, action) => {
       return {
         ...state,
         userProfile: action.userProfile,
+      }
+    case GET_CURRENT_USER:
+      return {
+        ...state,
+        currentUser: action.userID,
+      }
+    case SET_CURRENT_USER_PROFILE:
+      return {
+        ...state,
+        userProfile: state.currentUser,
       }
     default:
       return state

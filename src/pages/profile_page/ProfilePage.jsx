@@ -19,7 +19,11 @@ const Profile = (props) => {
     <div className={css.body}>
       <Banner />
       <div className={css.content}>
-        <Avatar profilePhoto={props.userProfile.photos.large} />
+        <Avatar
+          profilePhoto={
+            props.userProfile.photos.large ?? <div>avatar not found</div>
+          }
+        />
         <ProfileInfo profileStatus={props.userProfile.aboutMe} />
       </div>
       {props.userProfile.fullName}

@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Navigate } from 'react-router'
 import {
   sendMessage,
   showMessageInput,
@@ -9,6 +10,7 @@ import DialogsPage from './DialogsPage'
 
 class DialogsPageContainer extends React.Component {
   render = () => {
+    if (!this.props.isAuth) return <Navigate to="/login" />
     return <DialogsPage {...this.props} />
   }
 }
@@ -18,6 +20,7 @@ const mapStateToProps = (state) => {
     dialogs: state.dialogsPage.dialogs,
     messages: state.dialogsPage.messages,
     newMessage: state.dialogsPage.newMessage,
+    isAuth: state.auth.isAuth,
   }
 }
 
