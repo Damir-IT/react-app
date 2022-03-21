@@ -28,7 +28,6 @@ export const unfollowUser = (userID) => {
       if (data.resultCode === 0) {
         dispatch(unfollow(userID))
         dispatch(enableFollowing(false, userID))
-
         return
       }
       dispatch(enableFollowing(false, userID))
@@ -47,7 +46,8 @@ export const followUser = (userID) => {
         return
       }
       dispatch(enableFollowing(false, userID))
-      alert(data.messages) //displays an error message that comes with the data from server
+      alert(data.messages) 
+      //displays an error message that comes with the data from server
     })
   }
 }
