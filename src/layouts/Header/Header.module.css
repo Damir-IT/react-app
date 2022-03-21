@@ -25,8 +25,10 @@ img {
   top: 5px;
 }
 .login {
-  right: 5px;
-  top: 50px;
-  z-index: 1000;
-  background-color: green;
+  position: absolute;
+  right: 50px;
+  top: 15px;
+  color: white;
+  font-size: 14pt;
+  font-weight: 700;
 }
